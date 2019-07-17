@@ -6,6 +6,8 @@ class Node{
 }
 
 // Priority Queue represented by a binary heap (min binary heap)
+// Heap usually implemented as a minimum or maximum binary tree
+// Minimum binary tree contains the smaller values higher in the tree
 class PriorityQueue{
   constructor(){
       this.values = [];
@@ -77,8 +79,13 @@ class PriorityQueue{
           idx = higherPriorityChildIdx;
           node = this.values[idx];
       }
-      return oldRoot;
   }
 }
 
-const pq = new PriorityQueue()
+const pq = new PriorityQueue();
+console.log(pq);
+console.log('Adding value 10 with priority 3******', pq.enqueue(10, 3));
+console.log('Adding value 5 with priority 2******', pq.enqueue(5, 2));
+console.log('Adding value 25 with priority 1******', pq.enqueue(25, 1));
+console.log('Removing root******', pq.dequeue());
+console.log(pq);
