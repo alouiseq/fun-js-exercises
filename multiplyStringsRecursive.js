@@ -39,4 +39,6 @@ var multiply = function(num1, num2) {
   return sum.toString();
 };
 
-multiply('123456789', '987654321');
+console.log('The product of 123456789 X 987654321 is', multiply('123456789', '987654321'));
+console.log('The product of 9 X 8 is', multiply('9', '8'));    // 72
+console.log('The product of 21 X 35 is', multiply('21', '35'));    // 735
