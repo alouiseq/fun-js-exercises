@@ -34,4 +34,4 @@ function minSubArrayLen(ary, val) {
   return minLen
 }
 
-minSubArrayLen([1,4,16,22,5,7,8,9,10], 95)
+console.log(minSubArrayLen([1,4,16,22,5,7,8,9,10], 95));
