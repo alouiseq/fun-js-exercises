@@ -1,3 +1,9 @@
+/*  Validate a tree to see if it is a binary search tree.
+    A binary search tree is a binary tree (zero to two children)
+    where the left child of a node is smaller than the node
+    and the right child is larger than the node.
+*/
+
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -33,7 +39,7 @@ var isValidBST = function(root) {
 
 };
 
-const input = [2,1,3];
-// const input = [5,1,4,null,null,3,6];
+console.log(isValidBST([2, 1, 3]));
+console.log(isValidBST([5,1,4,null,null,3,6]));
 
-isValidBST(root);
+// TODO: Need to setup a tree and root
