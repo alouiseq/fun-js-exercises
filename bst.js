@@ -118,3 +118,8 @@ tree.insert(35)
 tree.insert(80)
 tree.insert(5)
 tree.insert(1)
+
+console.log('Breath first search:', tree.bfs());
+console.log('Depth first preorder search:', tree.dfs('preorder'));
+console.log('Depth first inorder search:', tree.dfs('inorder'));
+console.log('Depth first postorder search:', tree.dfs('postorder'));
