@@ -1,3 +1,4 @@
+// Divide and conquer approach
 function mergeSort (ary) {
   const merge = (leftArr, rightArr) => {
       let leftPtr = 0
@@ -26,4 +27,6 @@ function mergeSort (ary) {
   return merge(mergeSort(left), mergeSort(right))
 }
 
-mergeSort([56, 29, 4, 1, 100, 75, 35, 75, 25, 0])
+const ary = [56, 29, 4, 1, 100, 75, 35, 75, 25, 0];
+console.log('Unsorted input:', ary)
+console.log('Sorted output via mergesort:', mergeSort(ary));
