@@ -3,7 +3,6 @@ class Node {
     this.value = val;
     this.left = null;
     this.right = null;
-    this.isMax = false;
   }
 }
 
@@ -38,22 +37,22 @@ class BinaryTree {
       this.root = newNode;
     }
     if (values.length === 1) return this;
-
-    const queue = [this.root];
+    let queue = [];
 
     for (const val of values.slice(1)) {
+      queue = [this.root];
       const newNode = new Node(val);
-      while (queue.length) {
-        curr = queue.shift();
-        if (curr.left === undefined) {
+      while (true) {
+        const curr = queue.shift();
+        if (!curr.left) {
           curr.left = newNode;
           break;
-        } else if (curr.right === undefined) {
+        } else if (!curr.right) {
           curr.right = newNode;
           break;
         } else {
-          if (curr.left !== null) queue.push(curr.left);
-          if (curr.right !== null) queue.push(curr.right);
+          queue.push(curr.left);
+          queue.push(curr.right);
         }
       }
     }
