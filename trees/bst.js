@@ -123,3 +123,5 @@ console.log('Breath first search:', tree.bfs());
 console.log('Depth first preorder search:', tree.dfs('preorder'));
 console.log('Depth first inorder search:', tree.dfs('inorder'));
 console.log('Depth first postorder search:', tree.dfs('postorder'));
+
+module.exports.bst = BST;
