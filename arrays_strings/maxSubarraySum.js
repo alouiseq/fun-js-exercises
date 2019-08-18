@@ -1,5 +1,4 @@
 function maxSubarraySum(ary, sum){
-  // add whatever parameters you deem necessary - good luck!
   if(ary.length < sum) {
       return null
   }
@@ -21,4 +20,4 @@ function maxSubarraySum(ary, sum){
   return max
 }
 
-maxSubarraySum([-3,4,0,-2,6,-1], 2)
+console.log(maxSubarraySum([-3,4,0,-2,6,-1], 2));

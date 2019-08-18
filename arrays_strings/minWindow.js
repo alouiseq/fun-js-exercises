@@ -1,3 +1,6 @@
+/* Q: Given a string S and a string T, find the minimum window in S
+    which will contain all the characters in T in complexity O(n). */
+/* A: Use sliding window pattern. */
 let createHash = (arr) => {
   const hash = {};
   

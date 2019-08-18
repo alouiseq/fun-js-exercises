@@ -1,3 +1,4 @@
+// Q: Given an array of integers, find the min?
 function minSubArrayLen(ary, val) {
   let minLen = 0
   let currLen = 0
