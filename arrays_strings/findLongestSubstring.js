@@ -1,5 +1,6 @@
+// Find the longest substring without character duplication
 function findLongestSubstring(str){
-  // add whatever parameters you deem necessary - good luck!
+  // use sliding window pattern
   let store = {}
   let i = 0
   let count = 0
