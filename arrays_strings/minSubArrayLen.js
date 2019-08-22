@@ -18,11 +18,12 @@
 /* Solution 2: O(n)
     Each interation will require adding values in the subarray to find sum. Is there a more
     optimal solution?
-    Memoization can help store the sum of the previous values into the current value in the array.
-    use sliding pattern and follow Solution 1. Instead of looping subarray to add values, use
+    Memoization can help store the sum of the previous values (and current) into the current value
+    in the array.
+    Use sliding pattern and follow Solution 1. Instead of looping subarray to add values, use
     memoized values to speed up time complexity to O(n).
     1. Follow Solution 1.
-    2. Use array mem to store memoized values corresponding to the previous values
+    2. Use array mem to store memoized values corresponding to the previous value and current value.
 */
 function minSubArrayLen(s, nums) {
   let minLen = 0
@@ -36,28 +37,28 @@ function minSubArrayLen(s, nums) {
   
   // memoize nums 
   while(i < nums.length) {
-      mem[i] = mem[i-1] + nums[i]
-      i++
+      mem[i] = mem[i-1] + nums[i];
+      i++;
   }
   
-  i = 1
-  j = 0
+  i = 1;
+  j = 0;
   while(j < nums.length && j !== i) {
-      currLen = i - j
+      currLen = i - j;
       if(mem[i] - mem[j] >= s) {
           if(!minLen) {
-              minLen = currLen
+              minLen = currLen;
           } else {
-              minLen = minLen > currLen ? currLen : minLen
+              minLen = minLen > currLen ? currLen : minLen;
           }
-          j++
+          j++;
       } else if(i < nums.length) {
-          i++
+          i++;
       } else {
-          break
+          break;
       }
   }
-  return minLen
+  return minLen;
 }
 
 console.log(minSubArrayLen(95, [1,4,16,22,5,7,8,9,10]));
