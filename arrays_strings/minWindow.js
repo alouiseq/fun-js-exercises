@@ -1,6 +1,21 @@
 /* Q: Given a string S and a string T, find the minimum window in S
     which will contain all the characters in T in complexity O(n). */
-/* A: Use sliding window pattern. */
+/* Solution:
+Create an object map to store the characters in t.
+Store the characters in keys and character count in values.
+Use a variable min to track the minimum length required to satisfy the problem.
+Use a variable tLen to store the length of t string.
+Use a left and right indices for traversing s.
+1. Start at the beginning of s, iterate over s with right index.
+2. With the current character, decrement from the map.
+3. Then decrement from tLen as long as the char count in map is > 0.
+4. At each iteration, check if tLen === 0.
+5. If tLen === 0, store the the smaller value between min and diff of right and left.
+6. Increment left by 1, reset map, and assign tLen the length of t.
+7. Repeat from #2
+8. Afte the O(n) loop, return min
+*/
+
 let createHash = (arr) => {
   const hash = {};
   
