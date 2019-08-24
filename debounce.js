@@ -4,15 +4,31 @@
     the timer should reset every time the function is called.
 */
 
+// es6 style
 function debounce (fn, delay) {
+  let timer;
   return (
     (...params) => {
-      setTimeout(() => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
         fn(...params);
       }, delay);
     }
   );
 }
+
+// es5 style 
+// function debounce (callback, wait) {
+//   var timer;
+//   var that = this;
+//   return function () {
+//       var args = [].slice.call(arguments, 0);
+//       clearTimeout(timer);
+//       timer = setTimeout(function () {
+//           callback.apply(that, args);
+//       }, wait);
+//   }
+// }
 
 // example usage: 
 function callAutocompleteApi (...params) {
