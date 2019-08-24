@@ -1,0 +1,27 @@
+Suitable for: Backend Engineer
+Minimum expertise required: Beginner 
+
+Notes:
+== Initial solution questions ==
+* What is the runtime and memory consumption of the algorithm?
+* What things will you consider for memory vs runtime tradeoff?
+
+== Followup Questions ==
+Return the sentence
+
+def get_sentence(s, dict):
+	"""
+	Returns: Sentence that can be constructed from s given dict
+	"""
+
+	
+Return all possible sentences
+
+def get_sentences(s, dict):
+	"""
+	Returns: All sentences that can be constructed from s given dict
+	"""
+
+
+What if the sentence is trillion characters and dictionary is billion words? 
+(Distributed processing heavy)
