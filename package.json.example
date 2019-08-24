@@ -1,0 +1,28 @@
+{
+  "name": "interview-questions",
+  "version": "1.0.0",
+  "description": "Engineering Interview Questions, A collection of interview questions used to evaluate engineering candidates.",
+  "engines": {
+    "node": ">=7.7.4",
+    "npm": ">=5.6.0"
+  },
+  "scripts": {
+    "test": "NPM=true mocha",
+    "test:sudoku": "npm run test -- algorithms/sudoku_solver/sudoku_solver.spec.js",
+    "test:sudoku:solutions": "npm run test -- algorithms/sudoku_solver/solutions/sudoku_solver.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syapse/interview-questions.git"
+  },
+  "author": "Syapse",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/syapse/interview-questions/issues"
+  },
+  "homepage": "https://github.com/syapse/interview-questions#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
+}
