@@ -23,31 +23,30 @@ If there are lots of incoming S, say S1, S2, ... , Sk where k >= 1B, and you wan
  * @param {string} t
  * @return {boolean}
  */
-function isSubsequence(str1, str2) {
-  let first = 0
-  let pt1 = 0
-  let pt2 = 0
-  
-  if(str2.length < str1.length) {
-      return false
-  }
-  
-  while(pt1 < str2.length && pt2 < str2.length) {
-      if(str2[pt2] === str1[first]) {
-          pt2++
-          first++
-      } else {
-          first = 0
-          pt1 = pt2 = pt1 + 1
-      }
-      
-      if(first >= str1.length) {
-          return true
-      }
-  }
-  
-  return false
+/*
+Solution:
+Use two pointers ps and pt for s and t, respectively.
+Use a while loop while pt < t.length.
+1. Iterate over both strings.
+2. If s[ps] === t[pt], then increment both pointers by 1.
+3. If s[ps] !== t[pt], then increment pt by 1.
+4. If ps === s.length, then s is a subsequence of t.
+5. Return true.
+6. If pt === t.length, exit the loop and return false.
+*/
+function isSubsequence(s, t) {
+    let ps = 0
+    let pt = 0;
+
+    while (pt < t.length) {
+        if (s[ps] === t[pt++]) {
+            if (++ps === s.length) return true;
+        }
+    }
+
+    return false;
 }
 
-console.log(isSubsequence('hello', 'hello world'));
-console.log(isSubsequence('sing', 'sting'));
+console.log(isSubsequence('hello', 'hreolblob')); // true
+console.log(isSubsequence('sing', 'sting'));    // true
+console.log(isSubsequence('bees', 'beshave'));    // false
