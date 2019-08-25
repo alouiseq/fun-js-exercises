@@ -34,6 +34,17 @@ Use a while loop while pt < t.length.
 5. Return true.
 6. If pt === t.length, exit the loop and return false.
 */
+/*
+Solution (if incoming S is S1, S2, ..., Sk):
+1. Create a separate function for handling the multiple S inputs.
+2. Use es6 rest to gather the params in an array (...params).
+3. Use params[params.length-1] for t.
+4. Use an array results[] to track the result for each s.
+5. Use a forEach loop to loop over params until the last s in params.
+6. Invoke isSubsequence function on each itreation.
+7. Store the result in results[].
+8. At the end of the loop, return results[].
+*/
 function isSubsequence(s, t) {
     let ps = 0
     let pt = 0;
