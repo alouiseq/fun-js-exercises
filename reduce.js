@@ -6,14 +6,24 @@
     this function will return the results of processing that array. To make this interesting, don't use the ES5 array methods like forEach, reduce, etc.
 */
 
-function reduce () {
+function reduce (arr, callback, initial) {
+  let result = initial ? initial : null;
 
+  for(let elem of arr) {
+    result = callback(result, elem);
+  }
+  return result;
 }
 
 // example usage: 
 var sum = reduce([1,2,3,4], function (total, num) {
       return total + num
     }, 0) // == 10
+console.log('sum', sum)
+
+var sum = reduce([1,2,3,4], function (total, num) {
+      return total + num
+    }, 15) // == 25
 console.log('sum', sum)
 
 var people = reduce(
