@@ -1,3 +1,8 @@
+/*
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+
+A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+*/
 /**
  * @param {string} digits
  * @return {string[]}
@@ -24,11 +29,10 @@ var letterCombinations = function(digits) {
   const combos = [];
   
   const mappedNums = digits.split().map((val) => phoneMapping[val]);
-  ep
 
   return combos;
 };
 
 let input;
-input = '237';
+input = '23'  // output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]
 letterCombinations(input);
