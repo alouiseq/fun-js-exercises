@@ -1,19 +1,23 @@
-// Given an array nums of n integers, are there elements a, b, c in nums
-// such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
-// The solution set must not contain duplicate triplets.
+/* Problem:
+Given an array nums of n integers, are there elements a, b, c in nums
+such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+The solution set must not contain duplicate triplets.
+*/
+/* Solution:
+  loop over nums and store num as keys and count values
+  sort nums (used to check for duplicate triplets)
+  Two loops (outer and inner) over nums
+  - decrement outer value in hash permanently
+  - decrement inner value from hash
+  - add the values and find the value in hash that sum to 0
+  - use a stack to track visited values
+  - use number string to check for duplicate triplets
+  - use zeroSums to store array of arrays of zero sums
+  - after the end of inner loop, pop stack to reclaim hash values
+  - traverse the next outer value and inner loop until the end of outer loop
+  Time complexity: O(n^2)
+*/
 var threeSum = function(nums){
-  // loop over nums and store num as keys and count values
-  // sort nums(used to check for duplicate triplets)
-  // Two loops (outer and inner) over nums
-  // - decrement outer value in hash permanently
-  // - decrement inner value from hash
-  // - add the values and find the value in hash that sum to 0
-  // - use a stack to track visited values
-  // - use number string to check for duplicate triplets
-  // - use zeroSums to store array of arrays of zero sums
-  // - after the end of inner loop, pop stack to reclaim hash values
-  // - traverse the next outer value and inner loop until the end of outer loop
-  // O(n^2)
   const hash = {};
   const zeroSumsHash = {};
   const zeroSums = [];
