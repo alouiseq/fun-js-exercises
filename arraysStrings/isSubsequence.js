@@ -34,6 +34,7 @@ Solution (if incoming S is S1, S2, ..., Sk):
 6. Invoke isSubsequence function on each itreation.
 7. Store the result in results[].
 8. At the end of the loop, return results[].
+Time complexity: O(n)
 */
 /**
  * @param {string} s

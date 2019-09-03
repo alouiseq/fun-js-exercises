@@ -1,6 +1,5 @@
 /* Q: Given an array of n positive integers and a positive integer s, find the minimal length
     of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
-    Try an O(n) solution and then O(n log n).
 */
 /* Solution 1: O(n^2)
     Sliding pattern.
@@ -17,7 +16,7 @@
 */
 /* Solution 2: O(n)
     Each interation will require adding values in the subarray to find sum. Is there a more
-    optimal solution?
+    optimal solution? Yes.
     Memoization can help store the sum of the previous values (and current) into the current value
     in the array.
     Use sliding pattern and follow Solution 1. Instead of looping subarray to add values, use
