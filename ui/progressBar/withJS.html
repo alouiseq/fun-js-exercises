@@ -1,19 +1,40 @@
 <html>
+  <style>
+    .bar-container {
+      background-color: lightgray;
+      display: inline-block;
+      border: 1px solid black;
+      width: 100px;
+      height: 20px;
+    }
+    .inner-bar {
+      display: inline-block;
+      background-color: blue;
+      height: 20px;
+      width: 0;
+    }
+    .msg {
+      display: none;
+    }
+  </style>
   <body>
-    <input id="action-btn" type="button" onclick="increment(0, 200)" value="START PROGRESS" />
-    <div class="outer-bar" style="border:1px solid black;width:50px;height:20px">
-      <div class="inner-bar" style="display:inline-block;background-color:blue;height:20px;width:0;"></div>
-      <span class="msg" style="display:none">Done!</span>
+    <div class="container">
+      <div class="bar-container">
+        <div class="inner-bar"></div>
+      </div>
+      <span class="msg">Done!</span>
     </div>
+    <input id="action-btn" type="button" onclick="increment(50)" value="START" />
   </body>
   <script>
-    const increment = (start, ms) => {
+    const increment = ms => {
+      let progress = 0;
       const incrementInterval = setInterval(() => {
         const innerBar = document.querySelector('.inner-bar');
-        innerBar.style.width = ++start;
-        if (start >= 50) {
+        innerBar.style.width = ++progress;
+        if (progress >= 100) {
           clearInterval(incrementInterval);
-          document.querySelector('.msg').style.display = 'block';
+          document.querySelector('.msg').style.display = 'inline-block';
         }
       }, ms);
     }
