@@ -1,0 +1,32 @@
+<html>
+  <style>
+    .bar-container {
+      background-color: lightgray;
+      display: inline-block;
+      border: 1px solid black;
+      width: 100px;
+      height: 20px;
+    }
+    .inner-bar {
+      display: inline-block;
+      background-color: blue;
+      height: 20px;
+      width: 0;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="bar-container">
+        <div class="inner-bar"></div>
+      </div>
+    </div>
+    <input id="action-btn" type="button" onclick="increment(2)" value="START" />
+  </body>
+  <script>
+    const increment = seconds => {
+      const innerBar = document.querySelector('.inner-bar');
+      innerBar.style.transition = `width ${seconds}s linear`;
+      innerBar.style.width = '100%';
+    }
+  </script>
+</html>
