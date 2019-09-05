@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <input id="action-btn" type="button" onclick="increment(0, 200)" value="START PROGRESS" />
+    <div class="outer-bar" style="border:1px solid black;width:50px;height:20px">
+      <div class="inner-bar" style="display:inline-block;background-color:blue;height:20px;width:0;"></div>
+      <span class="msg" style="display:none">Done!</span>
+    </div>
+  </body>
+  <script>
+    const increment = (start, ms) => {
+      const incrementInterval = setInterval(() => {
+        const innerBar = document.querySelector('.inner-bar');
+        innerBar.style.width = ++start;
+        if (start >= 50) {
+          clearInterval(incrementInterval);
+          document.querySelector('.msg').style.display = 'block';
+        }
+      }, ms);
+    }
+  </script>
+</html>
