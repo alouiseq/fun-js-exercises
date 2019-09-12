@@ -41,3 +41,5 @@ Q: Can you describe your workflow when you create a web page?
 Q: What tools do you use to test your code’s performance? 
 
 Q: If you could master one technology this year, what would it be?
+
+**Q: What are you testing, integration testing, and functional testing?**
