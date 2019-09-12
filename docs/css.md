@@ -85,7 +85,7 @@ A: Open ended question. Should be able to name a few of these hopefully:
 **Q: Have you used or implemented media queries or mobile specific layouts/CSS?**
 
 A: 
-It can be inline in the html doc as an attribute media=<details> or in an external CSS file and can be defined as such:
+It can be inline in the html doc as an attribute *media=<>* or in an external CSS file and can be defined as such:
 
   @media screen and (min-width: 300px) {
     *normal css*
