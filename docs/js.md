@@ -113,7 +113,7 @@ A: Open ended...
 
 **Q: How do you go about testing your JavaScript?**
 
-A: Open ended, but hopefully should know some JS testing frameworks like Jasmine, qUnit, Mocha, Karma, etc... 
+A: Open ended, but hopefully should know some JS testing frameworks like Jest, Jasmine, qUnit, Mocha/Chai, Karma, UI component testing with Enzyme, etc... 
 
 **Q: What is async/await?**
 
@@ -139,3 +139,31 @@ the call stack. When a nonblocking (fast) task (e.g. console logging) is execute
 task (e.g. setTimeout, ajax calls, DOM events) is executed, it gets pushed onto the stack, popped and pushed onto the Web API block to kick off a timer (or waits). When the 
 timer is done (or event is triggered), then that task gets pushed onto the task queue. The event loop then checks if there are any tasks in the stack. If there are tasks, 
 the event loop waits until it's clear before pushing the next queued task onto the stack for execution (https://www.youtube.com/watch?v=8aGhZQkoFbQ).
+
+**Q: What is the difference between event.preventDefault() and event.stopPropagation()?**
+
+A:
+event.preventDefault() - tells the browser to disallow any default action if the event does not get explicitly handled
+event.stopPropagation() - prevents further propagation of the current event in the capturing and bubbling phases
+
+**Q: What is the difference between flow, redux, saga, or thunk?**
+
+**Q: What is the difference between object-oriented and functional programming?**
+
+A: The OOP approach can share states and can be mutated whereas in FP, objects are immutable and adhere to pure functions.
+Pure functions are:
+  - return the same values if the input is the same
+  - there are no side effects (network or db calls cannot affect the return value)
+  - data passed into pure functions cannot be altered
+
+**Q: What is code chunking and bundling?**
+
+**Q: What is lazy loading?**
+
+A: It means that only the files needed in the current view is loaded while others are loaded as needed.
+
+**Q: What are progressive web apps?**
+
+A: Apps that have the look and feel of a native app but are really web apps. The app resides on the desktop/mobile and can be opened and used even offline.
+
+**Q: Tell me about headless web architectures (CMS).**
