@@ -117,8 +117,25 @@ A: Open ended, but hopefully should know some JS testing frameworks like Jasmine
 
 **Q: What is async/await?**
 
+A: The ES6 way of using promises. It adds syntactic sugar but at the core still uses promises. It allows for code readability and efficiency since you 
+won't have to deal with .then promise chains.
+
 **Q: What are promises?**
+
+A: A Promise is an object that is a proxy for a value not yet known when it is created. It allows for asynchronous operations.
 
 **Q: What are generators?**
 
+A: Generators are functions (syntax: function*) that can be exited and later re-entered holding the previous state.
+  When a generator is invoked, it returns an interator () object. The iterator has a next() method that returns an object 
+  with a *value* property containing the yielded value and a *done* property as a boolean which indicates whether the 
+  generator has yielded its last value. Calling next() resumes the generator function execution until the next yield where 
+  it pauses until the next next() invocation.
+
 **Q: How does the event loop work?**
+
+A: The browser has a runtime (like Chrome's v8) that includes a call stack, Web APIs, task queue, and an event loop. All code execution gets pushed onto and popped from 
+the call stack. When a nonblocking (fast) task (e.g. console logging) is executed, it gets pushed onto the stack and popped and executed right away. When a blocking (slow) 
+task (e.g. setTimeout, ajax calls, DOM events) is executed, it gets pushed onto the stack, popped and pushed onto the Web API block to kick off a timer (or waits). When the 
+timer is done (or event is triggered), then that task gets pushed onto the task queue. The event loop then checks if there are any tasks in the stack. If there are tasks, 
+the event loop waits until it's clear before pushing the next queued task onto the stack for execution (https://www.youtube.com/watch?v=8aGhZQkoFbQ).
