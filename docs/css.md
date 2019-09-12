@@ -27,11 +27,10 @@ Implementation: Create a new image that is as wide as your widest image and and 
 
 **Q: Explain your understanding of the box model. Bonus: How you would tell the browser in CSS to render your layout in different box models.**
 
-A: For display purpose, every element in the page is considered a box. The box model refers to the specification of the box attributes such as the width, padding, border and margin. You can change the box model by setting the box-sizing property. Some values are: content-box (default), padding-box, and border-box) 
+A: For display purpose, every element in the page is considered a box. The box model refers to the specification of the box attributes such as the width, padding, border and margin. You can change the box model by setting the box-sizing property [content-box (default) and border-box] 
 
-	•	Content-box: width & height includes content but not padding/border/margin 
-	•	Padding-box: include up to padding 
-	•	Border-box: include up to border, but not margin 
+	•	Content-box: width & height include content but not padding/border/margin 
+	•	Border-box: width & height include content, padding, and border - no margin 
 
 Bonus points for knowing that IE is different with it’s box model rendering before IE6 and in quirks mode. 
 
@@ -96,6 +95,7 @@ where screen is a media type (other types: all, print, screen, speech)
 **Q: Why use flexbox?**
 
 A: It's an efficient way to layout, align, and distribute space among items in a container, regardless if their size is dynamic or unknown.
+Resource: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 **Q: What are web components**
 
