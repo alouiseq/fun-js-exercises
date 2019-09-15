@@ -115,6 +115,14 @@ A: Open ended...
 
 A: Open ended, but hopefully should know some JS testing frameworks like Jest, Jasmine, qUnit, Mocha/Chai, Karma, UI component testing with Enzyme, etc... 
 
+**Q: What is the difference between unit testing, integration testing, and functional testing?**
+
+A:
+**Unit testing** - test small pieces of code in isolation (e.g. functions). External resources like database or network usage is not a unit test.
+**Integration testing** - test how parts of the system work together. They are similar to unit tests except they integrate with other pieces of code.
+**Functional testing** - aka end to end (E2E) testing. This tests the complete functionality of some application (e.g. usage of tools
+to automate a browser that executes automated clicks around the pages to check for functionality of the application).
+
 **Q: What is async/await?**
 
 A: The ES6 way of using promises. It adds syntactic sugar but at the core still uses promises. It allows for code readability and efficiency since you 
