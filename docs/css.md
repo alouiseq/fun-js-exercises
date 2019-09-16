@@ -119,3 +119,14 @@ A:
 Both give elements special effects:
 Pseudo elements are selectors that act like they add a new HTML element into the markup (e.g. ::before, ::after). Similar to how elements work.
 Pseudo classes are selectors that select elements that are in a specific state (e.g. :hover, :first-child). Similar to how classes work.
+
+**Q: Native CSS vs CSS Modules vs BEM?**
+
+A: Native CSS is exactly that. CSS Modules use javascript to create elements with imported css styles. BEM is a CSS pattern used by some.
+The main reasons to use css modules and BEM are to localize css styles within a component to avoid css collision across the entire document.
+
+BEM (Block, Element, Modifier) follows the pattern:
+  .btn {}  - Block
+  .btn__price {}  - child element
+  .btn--orange {}  - modifier
+Reference: https://css-tricks.com/bem-101/
