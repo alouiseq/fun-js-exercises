@@ -43,3 +43,21 @@ Q: What tools do you use to test your code’s performance?
 Q: If you could master one technology this year, what would it be?
 
 **Q: What are you testing, integration testing, and functional testing?**
+
+**Q: GraphQL vs REST?**
+
+A: GraphQL is more flexible and efficent than REST. GraphQL solves the problem of under and over-fetching data with REST.
+Under-fetching happens when the endpoint does not return nough required information. Over-fetching happens when the client 
+downloads more data than what is required. Over and under-fetching occur because hitting endpoints return fixed data structures. 
+They are fixed because of the difficulty in designing the API in a way that provides clients with their exact data needs. 
+Even if a REST API is structured to design endpoints according to the views of the app, it doesn't allow for rapid interations 
+in the frontend. Any change in the frontend will consequently produce the issue of under/over-fetching data.
+
+GraphQL solves this issue because the client sends a single query to the GraphQL server that includes the exact data requirements. 
+The server responds with a JSON object where all the data requirements are fulfilled.
+
+**Q: What is headless architecture?**
+
+A: Provide a solution to produce and manage content while ensuring a seamless eperience across channels/devices/platforms. It is a 
+decoupled model that shifts responsibility of display logic from the server to the client. This allows the frontend to create as 
+many "heads" as it wants and have full control over the user experience with its own native tools.
