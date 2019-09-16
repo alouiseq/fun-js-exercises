@@ -169,9 +169,3 @@ Pure functions are:
 **Q: What is lazy loading?**
 
 A: It means that only the files needed in the current view is loaded while others are loaded as needed.
-
-**Q: What are progressive web apps?**
-
-A: Apps that have the look and feel of a native app but are really web apps. The app resides on the desktop/mobile and can be opened and used even offline.
-
-**Q: Tell me about headless web architectures (CMS).**

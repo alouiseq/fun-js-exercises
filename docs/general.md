@@ -61,3 +61,7 @@ The server responds with a JSON object where all the data requirements are fulfi
 A: Provide a solution to produce and manage content while ensuring a seamless eperience across channels/devices/platforms. It is a 
 decoupled model that shifts responsibility of display logic from the server to the client. This allows the frontend to create as 
 many "heads" as it wants and have full control over the user experience with its own native tools.
+
+**Q: What are progressive web apps?**
+
+A: Apps that have the look and feel of a native app but are really web apps. The app resides on the desktop/mobile and can be opened and used even offline.
