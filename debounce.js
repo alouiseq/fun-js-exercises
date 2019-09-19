@@ -36,6 +36,7 @@ function callAutocompleteApi (...params) {
   console.log('called autocomplete', params)
 }
 var slowCall = debounce(callAutocompleteApi, 5000);
-slowCall();
+slowCall(10, 20, 30);
 setTimeout(() => slowCall(1, 2, 3), 3000);
+console.log('WHEN DO I GO?')
 // function should now wait 8 secs to fire for the first time

@@ -169,3 +169,12 @@ Pure functions are:
 **Q: What is lazy loading?**
 
 A: It means that only the files needed in the current view is loaded while others are loaded as needed.
+
+**Q: What is the difference between a node and an element?**
+
+Node is the generic name referring to any object in the DOM. Element is one type of node (e.g. text nodes, comment nodes, document nodes).
+
+**Q: What is the difference between XHTML and HTML?**
+
+XHTML is the stricter version of HTML. XHTML is well formed and properly structured as opposed to HTML where the page would still be functional 
+even if some the elements weren't properly structured (e.g. element with no closing tag).
