@@ -178,3 +178,7 @@ Node is the generic name referring to any object in the DOM. Element is one type
 
 XHTML is the stricter version of HTML. XHTML is well formed and properly structured as opposed to HTML where the page would still be functional 
 even if some the elements weren't properly structured (e.g. element with no closing tag).
+
+**Q: Explain promises in detail (Ensure you understand how to use and create promises)**
+
+**Q: Understand prototype, __proto__, and prototypical inheritance**
