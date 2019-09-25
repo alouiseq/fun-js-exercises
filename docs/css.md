@@ -1,9 +1,11 @@
 # CSS Questions 
 
-**Q: Describe what a "reset" CSS file does and how it's useful.**
+**Q: Describe what a "reset" and "normalize" CSS file does and how it's useful.**
 
-A: A reset removes and neutralizes the inconsistent default styling of HTML elements in different 
+A reset removes and neutralizes the inconsistent default styling of HTML elements in different 
 browsers. The reset stylesheet removes the browser’s defaults, so you don’t have to worry about them. 
+
+CSS normalizing ensures that all html elements behave in a consistent way across browsers and platforms.
 
 **Q: Describe Floats and how they work.**
 
