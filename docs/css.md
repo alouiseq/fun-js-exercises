@@ -132,3 +132,10 @@ BEM (Block, Element, Modifier) follows the pattern:
   .btn__price {}  - child element
   .btn--orange {}  - modifier
 Reference: https://css-tricks.com/bem-101/
+
+**Q: CSS Specificity Calculations**
+
+Style attribute                   (most specificity value)
+ID
+Class, pseudo-class, attribute
+Elements                          (least specificity value)
