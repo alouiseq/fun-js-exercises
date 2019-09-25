@@ -1,9 +1,26 @@
-**Q: React Component vs. Pure Component?**
+**Q: React Component vs. PureComponent?**
 
-**Q: Class vs. function based in React**
+PureComponent handles the shouldComponentUpdate lifecycle method. When props or state changes, PureComponent will do a shallow comparison on both, 
+contrary to Component which re-renders the component and children components.
+
+Pure Component will execute shallow comparison which means it'll check that primitives have the same value and check references only for objects 
+and arrays. If you mutate objects in a parent component, your "pure" child components would not update because the child would be comparing the 
+reference to the previous props and not detect a difference.
+
+Comparing primitives and object references is much cheaper than re-rendering the tree.
+
+**Q: Class vs. Functional component in React**
+
+Functional component is lightweight and is a function that takes props as a parameter. It cannot use react lifecycle methods like class components can.
 
 **Q: How do you share state without using Redux? How to read/update state?**
 
+Using state and passing down the state as props to children. With ReactJS >= 16.3, context API is much easier to use for shared state.
+
 **Q: What to avoid in the render?**
 
-**Q: Typescript vs. React proptypes**
+Do not update state (setState) in render because this will cause a re-render loop. Use componentWillReceiveProps instead.
+
+**Q: Typescript vs. React proptypes?**
+
+Typescript statically type the entire JS codebase as opposed to React proptypes which only validates the types of props passed down to React components.
