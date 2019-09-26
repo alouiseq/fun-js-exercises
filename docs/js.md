@@ -81,7 +81,7 @@ A: Hoisting is the JavaScript interpreter’s action of moving all variable and 
 
 **Q: Difference between document load event and document ready event?**
 
-A: Document ready: executes when HTML-Document is loaded and DOM is ready. Document load: executes when complete page is fully loaded, including all frames, objects and images. 
+A: Document ready: executes when the HTML document is loaded and DOM is ready. Document load: executes when complete page is fully loaded, including all frames, objects and images. 
 
 **Q: What is the difference between == and ===?**
 

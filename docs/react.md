@@ -24,3 +24,25 @@ Do not update state (setState) in render because this will cause a re-render loo
 **Q: Typescript vs. React proptypes?**
 
 Typescript statically type the entire JS codebase as opposed to React proptypes which only validates the types of props passed down to React components.
+
+**Q: Describe each of React's lifecycle methods**
+
+Refer to http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ for a visual representation of the lifecycle methods.
+
+**Note: Methods that are bold are common lifecycle methods.**
+
+Mounting:
+  1. *constructor*
+  2. static getDerivedStateFromProps
+  3. *render*
+  4. *componentDidMount*
+
+Updating:
+  1. static getDerivedStateFromProps
+  2. shouldComponentUpdate
+  3. *render*
+  4. getSnapshotBeforeUpdate
+  5. *componentDidUpdate*
+
+Unmounting:
+  1. *componentWillUnmount*
