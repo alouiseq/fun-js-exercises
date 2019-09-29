@@ -139,3 +139,31 @@ Style attribute                   (most specificity value)
 ID
 Class, pseudo-class, attribute
 Elements                          (least specificity value)
+
+**Q: How do you center things?**
+
+*Text-align*
+1. Wrap a div you want to center with a parent element
+2. Set text-align:center on the parent element.
+
+*Margin auto*
+1. Set a width on the element you want to center.
+2. Set margin-left and margin-right to auto.
+
+*Absolute positioning*
+1. Set the element's position property to absolute.
+2. Apply left:50% to the element to place the left edge of the element to the center (notice that the actual element including it's width is not quite centered).
+3. Set a margin-left of negative half of the element's width (e.g. if the width is 100px then set margin-left: -50px) to correctly offset to the center.
+
+*Transform/translate*
+1. Set the element's position property to absolute.
+2. Apply left:50% to the element to place the left edge of the element to the center (notice that the actual element including it's width is not quite centered).
+3. Apply top:50% if you desire to vertically align the element to the center.
+4. Apply transform: translate(-50%, -50%) to correctly offset both the width and height, respectively. This is convenient because you don't need to know the 
+width/height of the element, the transform/translate will calculate that automatically.
+
+*Flexbox*
+1. HTML, body, and parent container need to have a height of 100%.
+2. Set display to flex on the parent container.
+3. Set align-items to center on the parent container to vertically center.
+4. Set justify-content to center on the parent container to horizontally center.
