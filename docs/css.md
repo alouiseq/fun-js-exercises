@@ -7,9 +7,9 @@ browsers. The reset stylesheet removes the browser’s defaults, so you don’t 
 
 CSS normalizing ensures that all html elements behave in a consistent way across browsers and platforms.
 
-**Q: Describe Floats and how they work.**
+**Q: Describe Floats and Clear and how they work.**
 
-A: A float is a box that is shifted to the left or right on the current line. The most interesting characteristic of a float (or “floated” or “floating” box) is that content may flow along its side (or be prohibited from doing so by the “clear” property). Content flows down the right side of a left-floated box and down the left side of a right-floated box. 
+A: A float is a box that is shifted to the left or right on the current line. The most interesting characteristic of a float (or “floated” or “floating” box) is that content may flow along its side (or be prohibited from doing so by the “clear” property). Content flows down the right side of a left-floated box and down the left side of a right-floated box. When using clear to clear or not overlay the floated element, use the same side as was used in the float (e.g. if float: left then use clear: left OR clear: both). 
 
 
 **Q: How are Class and Id different? When are good examples when to use each?**
@@ -167,3 +167,51 @@ width/height of the element, the transform/translate will calculate that automat
 2. Set display to flex on the parent container.
 3. Set align-items to center on the parent container to vertically center.
 4. Set justify-content to center on the parent container to horizontally center.
+
+**Q: What are CSS hacks to fix the issue with overlapping elements when using floats? **
+
+1. Use clear left, right, or both (e.g. follows):
+element {
+	float: left;
+}
+element-after {
+	clear: left;
+}
+
+2. Use overflow auto on the containing element:
+child-element {
+	float: left;
+}
+.parent-element {
+  overflow: auto;
+}
+
+3. Use pseudo-class and a few properties on the containing element:
+child-element {
+	float: right;
+}
+parent-element::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+**Q: How do you use animations?**
+
+Use CSS3 animation and keyframes properties.
+
+E.g.:
+@keyframes example {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+div {
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
