@@ -79,7 +79,7 @@ A: JSONP is a method commonly used to bypass the cross-domain policies in web br
 
 A: Hoisting is the JavaScript interpreter’s action of moving all variable and function declarations to the top of the current scope. However, only the actual declarations are hoisted and not the values. http://www.sitepoint.com/back-to-basics-javascript-hoisting/
 
-**Q: Difference between document load event and document ready event?**
+**Q: Difference between document load event (onLoad) and document ready event (onReady)?**
 
 A: Document ready: executes when the HTML document is loaded and DOM is ready. Document load: executes when complete page is fully loaded, including all frames, objects and images. 
 
