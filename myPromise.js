@@ -42,5 +42,5 @@ promise
   .then(res => setTimeout(() => {
     console.log(res);
     promise.resolve(res + ' again');
-  }, 1000))
+  }, 500))
   .then(res => console.log(res));

@@ -1,6 +1,7 @@
 /* Q: Given a string S and a string T, find the minimum window in S
     which will contain all the characters in T in complexity O(n). */
 /* Solution:
+Check with the interviewer if the order of the chars in t needs to be respected. If not then follow the following solution:
 Create an object map to store the characters in t.
 Store the characters in keys and character count in values.
 Use a variable min to track the minimum length required to satisfy the problem.
@@ -14,6 +15,9 @@ Use a left and right indices for traversing s.
 6. Increment left by 1, reset map, and assign tLen the length of t.
 7. Repeat from #2
 8. Afte the O(n) loop, return min
+
+If the order of chars in t is respected, then hash object is not necessary. use a pointer for the indices of t and traverse 
+the string while traversing the chars in s with multiple pointers, effectively using 3 pointers total.
 */
 
 let createHash = (arr) => {
