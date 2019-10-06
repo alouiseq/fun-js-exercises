@@ -1,34 +1,29 @@
 // Q: Implement your own promise to get the following promise to resolve
 
 class MyPromise {
-  constructor(callback) {
+  constructor(cb) {
+    this.status = '';
     this.queue = [];
-    this.state = 'pending';   // ['pending', 'fullfilled', 'rejected']
-    this.value = '';
-
-    this.resolve = successMsg => {
-      this.state = 'fullfilled';
-      this.value = successMsg;
-      this.runQueueSubscriber();
+    this.resolve = (msg) => {
+      this.status = msg;
+      this.runSuccessfulSubscriber();
     }
-
-    callback(this.resolve);
+    cb(this.resolve);
   }
 
-  runQueueSubscriber() {
-    const nextRun = this.queue.shift();
-    if (this.state === 'fullfilled' || this.state === 'rejected')  {
-      nextRun(this.value);
-      this.state = 'pending';
-      this.value = '';
+  runSuccessfulSubscriber () {
+    const next = this.queue.shift();
+    if (next && this.status) {
+      next(this.status);
+      this.status = '';
     }
   }
 
-  then(fn) {
-    if (this.state === 'fullfilled') {
-      fn(this.value);
+  then (cb) {
+    if (this.status) {
+      cb(this.status);
     } else {
-      this.queue.push(fn);
+      this.queue.push(cb);
     }
     return this;
   }
@@ -39,8 +34,10 @@ const promise = new MyPromise(resolve => {
 });
 
 promise
-  .then(res => setTimeout(() => {
+  .then(res => {
     console.log(res);
-    promise.resolve(res + ' again');
-  }, 500))
+    setTimeout(() => {
+      promise.resolve(res + ' again');
+    }, 500);
+  })
   .then(res => console.log(res));
