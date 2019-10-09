@@ -10,5 +10,10 @@ function makeArrayFromFrom() {
   console.log('Array from array.from function', data)
 }
 
-makeArrayFromApply()
-makeArrayFromFrom()
+function duplicateStrings(str, n) {
+  console.log(Array.from({length: n}, () => str).join(''));
+} 
+
+makeArrayFromApply();
+makeArrayFromFrom();
+duplicateStrings('hello', 3);     // 'hellohellohello'

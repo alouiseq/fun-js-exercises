@@ -215,3 +215,8 @@ div {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+**Q: How does z-index work?**
+
+The position on an element must be set for z-index to work. Webpages are made out of stacking contexts (stack of elements). The z-index  
+property determines the order of items in each stack, with higher z-index being placed further up or in front of lower z-index values.

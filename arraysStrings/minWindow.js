@@ -1,5 +1,6 @@
-/* Q: Given a string S and a string T, find the minimum window in S
-    which will contain all the characters in T in complexity O(n). */
+/* Question:
+Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+*/
 /* Solution:
 Check with the interviewer if the order of the chars in t needs to be respected. If not then follow the following solution:
 Create an object map to store the characters in t.

@@ -13,5 +13,5 @@ function flatten(ary){
   return newAry;
 }
 
-console.log(`${flatten([1, [2, [3, 4], [[5]]]])} should be [1,2,3,4,5]`);
-console.log(`${flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])} should be [1,2,3]`);
+console.log(`[${flatten([1, [2, [3, 4], [[5]]]])}] should be [1,2,3,4,5]`);
+console.log(`[${flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]])}] should be [1,2,3]`);
