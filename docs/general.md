@@ -65,3 +65,17 @@ many "heads" as it wants and have full control over the user experience with its
 **Q: What are progressive web apps?**
 
 A: Apps that have the look and feel of a native app but are really web apps. The app resides on the desktop/mobile and can be opened and used even offline.
+
+**Q: How do you solve the issue with CORS (cross origin resource sharing) when attempting to acces a resource outside of the current domain?**  
+
+The browser is the gatekeeper when accessing resources and either blocks the API request with the CORS policy error if the external domain access is not  
+permitted or allows access to the resource (origins don't match).
+
+3 Ways to resolve the issue access control issue:  
+1. Include the `Access-Control-Allow-Origin: *` header in the server response.
+2. Send your request to a proxy server like [cors-anywhere]https://github.com/Rob--W/cors-anywhere/#documentation) which adds the CORS header to the response.  
+The idea is for the web app to send the request to the proxy server, the proxy server then requests the resource directy from the desired server, the proxy server  
+adds the `Access-Control-Allow-Origin: *` header to the response header and returns to the web app, the browser sees that the API is ok to access, proceeds to  
+request the resource and receives from the server. 
+3. Build your own proxy to avoid latency from the publicly used cors-anywhere.
+
