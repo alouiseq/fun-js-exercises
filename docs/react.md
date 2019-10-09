@@ -46,3 +46,18 @@ Updating:
 
 Unmounting:
   1. *componentWillUnmount*
+
+**Q: What are useState and useEffect?**
+
+They are React Hooks which are special functions that "hook into" React features. They are useful for function components to access 
+features usually only accessible to React classes.
+
+useEffect - creates a side effect that acts like componentDidMount and componentDidUpdate. You can update state through here.
+useState - creates a React state similar to this.state with an initial state. It also includes an update function similar to this.setState.
+
+e.g.
+const [name, setName] = useState('John Doe')
+useEffect(() => {
+  setName('Bob Marley')
+})
+console.log(name)   // 'Bob Marley'
