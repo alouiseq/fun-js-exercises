@@ -94,8 +94,12 @@ A: This tests for understanding of type coercion. ===, or 'strict comparison' me
 	•	Two objects are strictly equal if they refer to the same Object.
 	•	Null and Undefined types are == (but not ===).
 
+**Q: What is CSP?**  
 
-**Q: Explain the same-origin policy with regards to JavaScript.**
+Content Security Policy (CSP) is an added security layer that helps detect and mitigate Cross Site Scripting (XSS) and data injection attacks.  
+To enable CSP, configure your web server to return the `Content-Security-Policy` HTTP header (or alternatively include in the meta tag).  
+
+**Q: Explain the same-origin policy with regards to JavaScript (CORS).**
 
 A: The same-origin policy restricts how a document or script loaded from one origin can interact with a resource from another origin. Only scripts that are served from the same domain can access each others objects and properties without restriction (so if you have a .js file with named functions defined, you can call it from any other file hosted on the same domain. Two pages have the same origin if the protocol, port (if one is specified), and host are the same for both pages. 
 
