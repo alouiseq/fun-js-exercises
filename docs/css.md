@@ -138,7 +138,7 @@ Reference: https://css-tricks.com/bem-101/
 Style attribute                   (most specificity value)
 ID
 Class, pseudo-class, attribute
-Elements                          (least specificity value)
+Elements, pseudo elements         (least specificity value)
 
 **Q: How do you center things?**
 

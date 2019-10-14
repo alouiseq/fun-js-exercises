@@ -16,7 +16,7 @@ A:
 
 **Q: Explain event delegation in regards to the DOM. (if they are blocked mention event bubbling)**
 
-A: A process of using event propagation to handle events at a higher level in the DOM. Allows us to put a single event listener to the parent element instead multiple on all the children. When the children is clicked, a click event is fired and bubbles up the DOM tree (event propagation/bubbling). The parent then simply checks the event target property to get the reference to the actual clicked node. 
+A: A process of using event propagation to handle events at a higher level in the DOM. Allows us to put a single event listener to the parent element instead of multiple listeners on all the children. When the children is clicked, a click event is fired and bubbles up the DOM tree (event bubbling) or trickles down to its children elements (capturing). The parent then simply checks the event target property to get the reference to the actual clicked node. 
 
 **Q: Explain how “this” works in JavaScript.**
 
@@ -182,3 +182,20 @@ even if some the elements weren't properly structured (e.g. element with no clos
 **Q: Explain promises in detail (Ensure you understand how to use and create promises)**
 
 **Q: Understand prototype, __proto__, and prototypical inheritance**
+
+**Q: What is the difference between bind, call, and apply?**
+
+bind() - creates a new function and sets the `this` keyword to the specified object.
+```
+function.bind(this, arg1, arg2, ...)
+```
+
+call() - sets the this inside the function and immediately executes that function.
+```
+function.call(thisArg, arg1, arg2, ...)
+```
+
+apply() - similar to call(). The difference is that the apply() method accepts an array or arguments instead of comma separated values.
+```
+function.apply(thisArg, [argumentsArr])
+```

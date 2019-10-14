@@ -1,11 +1,11 @@
-// board1 = [
-//     [ 0,  0,  0, 0, -1 ],    // moves = [[1, 2]]
-//     [ -1, -1, -1, 0,  0 ],
-//     [ 0,  0,  0, 0,  0 ],
-//     [ 0, -1,  0, 0,  0 ],
-//     [ 0,  0,  0, 0,  0 ],
-//     [ 0,  0,  0, 0,  0 ],
-// ]
+board1 = [
+    [ 0,  0,  0, 0, -1 ],    // start [2,2] moves = [[2,3], [3,2], [2,1]]
+    [ -1, -1, -1, 0,  0 ],
+    [ 0,  0,  0, 0,  0 ],
+    [ 0, -1,  0, 0,  0 ],
+    [ 0,  0,  0, 0,  0 ],
+    [ 0,  0,  0, 0,  0 ],
+]
 
 // board2 = [
 //     [  0,  0,  0, 0, -1 ],
@@ -48,81 +48,99 @@
 // n: width of the input board
 // m: height of the input board
 
-/*
-Q: Given a board and a starting position [r,c], find all possible immediate next moves if any.
+/* Problem 1:
+Given a board and a starting position [r,c], find all possible immediate next moves if any.
 A valid next move is a move where the value is 0 representing a space and the move cannot be 
 done if the spot contains a value of -1 representing a wall or of the move falls outside the 
 boundaries of the board.
 */
-/*
-Solution:
-- Check the next spot for the top, right, bottom, and left of the current position and 
-see if the move is valid. 
-- If the value is 0, then add the next position to moves[], if not then ignore.
-- Return moves[].
-- Time complexity: O(1)
-- Space complexity: O(n*m)
+/* Solution:
+Starting at the given position, use if/ese statements for top, right, bottom, left of the position and check if the move is valid.
+If the move is valid, add the [r, c] to an array.
+At the end of the loop, return the array of all possible moves.
+Time: only need to check top/right/bottom/left ==> constant 0(1)
+space: worst case is that all surrounding moves are valid, ergo max of 4 spaces ==> 0(1)
 */
 const findLegalMoves = (board, start) => {
   const moves = [];
-  const row = start[0];
-  const col = start[1];
+  if (!start || !start.length) return moves;
+
+  let row = start[0];
+  let col = start[1];
+
   // top
-  if((row-1 >= 0) && board[row-1][col] === 0){
-    moves.push([row-1, col]);
+  r = row-1;
+  if (r>-1 && board[r][col] === 0) {
+    moves.push([r, col]);
   }
   // right
-  if((col+1 < board[0].length) && board[row][col+1] === 0){
-    moves.push([row, col+1]);
+  c = col+1;
+  if (c>-1 && board[row][c] === 0) {
+    moves.push([row, c]);
   }
   // bottom
-  if((row+1 < board.length) && board[row+1][col] === 0){
-    moves.push([row+1, col]);
+  r = row+1;
+  if (r>-1 && board[r][col] === 0) {
+    moves.push([r, col]);
   }
   // left
-  if((col-1 >= 0) && board[row][col-1] === 0){
-    moves.push([row, col-1]);
+  c = col-1;
+  if (c>-1 && board[row][c] === 0) {
+    moves.push([row, c]);
   }
-//   console.log(board[row-1][col]);
-  console.log(moves);
+
   return moves;
 }
-findLegalMoves(board, [2, 2]);
+// console.log(findLegalMoves(board1, [0, 0]));
 
-/*
-Q: Given a board and an end position for the player, write a function to determine if it is possible to travel from every open cell on the board to the given end position.
+/* Problem 2
+Given a board and an end position for the player, write a function to determine if it is possible to travel from every open cell on the board to the given end position.
 */
 /* Solution:
-Traverse each position on the board and that position will be the starting position.
-Leverage findLegalMoves function to get all the possible next moves into an array.
-If the end position matches any of the next move positions, then remove from the array.
-If not, then findLegalMoves for the next position 
+Leverage findLegaMoves to find the immediate moves available for the current position.
+Use BFS (Breadth First Search) Tree approach to traverse each position (node) on the board and use the legal moves (top/right/bottom/left children) to traverse the rest of the board.  
+While travering the board, if a position cannot move to the end position, return false and we're done.
+Once full board traversal is done, return true that every open cell on the board can in fact travel to the end position.
+Note: To avoid traversal duplication, we need to track visited positions. We can use a JS object to track the visited positions.
 */
-// const isReachable = (board, end) => {
-// }
+// TODO: Not yet working 
+const isReachable = (board, end) => {
+  const visited = {};
+  let vstr = '';
+  const maxRow = board.length;
+  const maxCol = board[0].length;
+  let queue = [[0,0]];
+  let r;
+  let c;
+  let next = [];
+  let moves = [];
 
-// const isReachable = (board, end) => {
-// //   const start = [0,0];
-// //   let moves = findLegalMoves(board, start);
-// //   if (!moves.length) return false;
-  
-// //   for(let pos of moves) {
-// //     if (!(findLegalMoves(board, pos).length) return false;
-// //   }
-  
-//   const moves = [findLegaMoves(board, end)]
-  
-//   for(let pos of moves) {
-//     if (!(findLegalMoves(board, pos).length) return false;
-//   }
-// //   if (!queue.length) return false;
-  
-//   while(queue.length) {
-    
-//   }
-//   return true;
-// }
-
+  while(queue.length) {
+    next = queue.shift();
+    r = next[0];
+    c = next[1];
+    vstr = next.join('-');
+    if (board[r][c] === 0 && !visited[vstr]) {
+      visited[vstr] = true;
+      moves = findLegalMoves(board, [r,c]);
+      if (moves.length) {
+        for(let move of moves) {
+          if (move[0] === end[0] && move[1] === end[1]) {
+            moves = [];
+            continue;
+          }
+        }
+        queue = [ ...queue, ...moves ];
+      } else {  // if no moves left, then it's unreachable
+        return false;
+      }
+    } else {
+      if (c+1 < maxCol) queue.push([r,c+1]);
+      else if (r+1 < maxRow) queue.push([r+1,c]);
+    }
+  }
+  return true;
+}
 
 var board = [
   [0,  0,  0, -1, -1],
@@ -141,3 +159,5 @@ var start4 = [6, 0];
 var start5 = [6, 4];
 var start6 = [0, 0];
 var start7 = [2, 2];
+
+console.log('Reachable?', isReachable(board, [0,0]));
