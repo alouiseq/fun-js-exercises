@@ -210,7 +210,7 @@ function.apply(thisArg, [argumentsArr])
 
 **Q: Monolith vs Micro frontends?**
 
-Micro frontends allow for:
+Benefits of Micro frontends:
 ```
 - easy to scale teams
 - easy to onboard new developers
