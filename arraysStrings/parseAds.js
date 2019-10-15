@@ -24,12 +24,22 @@ let counts = [ "900,google.com",
     "1,mobile.sports",
     "1,google.co.uk" ];
 
-/*
+/* Problem
 Write a function that takes this input as a parameter and returns a data structure containing the number of clicks 
 that were recorded on each domain AND each subdomain under it. For example, a click on "mail.yahoo.com" counts toward 
 the totals for "mail.yahoo.com", "yahoo.com", and "com". (Subdomains are added to the left of their parent domain. 
 So "mail" and "mail.yahoo" are not valid domains. Note that "mobile.sports" appears as a separate domain near the 
 bottom of the input.)
+*/
+/* Solution
+Iterate over the input counts and do the following:
+1. separate the first element of click counts and store into a variable.
+2. Split the domains string to convert to an array:
+    1. store the domain into an object key and store the clicks as the value.
+    2. Remove the first element (array.shift) and store the next domain and clicks into the object.
+    3. Remember to store the top level domain too (e.g. 'com').
+    4. When storing the domains and clicks, check if the domain exists already, and if so, add the clicks to the 
+    current clicks value.
 */
 
 // O(n) time complexity
