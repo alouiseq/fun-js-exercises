@@ -203,3 +203,29 @@ apply() - similar to call(). The difference is that the apply() method accepts a
 ```
 function.apply(thisArg, [argumentsArr])
 ```
+
+**Q: SPA vs Server-rendered applciation?**
+
+**Q: Client-side or Server-side rendering?**
+
+**Q: Monolith vs Micro frontends?**
+
+Micro frontends allow for:
+```
+- easy to scale teams
+- easy to onboard new developers
+- greater autonomy
+- isolated application won't affect other parts
+- technology stack agnostic
+- micro frontends usually align with business structure, so easily manageable
+- separation of concerns in terms of business logic
+- smaller teams to focus on the app
+- own the application end to end
+```
+
+Things to be aware when using micro frontends:
+```
+- Handle CORS
+- how to share configuration so they're not duplicated among applications
+- handle routing since micro frontends have different urls
+```
