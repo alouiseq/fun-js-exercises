@@ -9,7 +9,7 @@ quench for software knowledge and be up to date with everything that's happening
 
 Among other things:
 
-- I read 2 articles by Hamman and Mike Reifman that was catered to the Front-End Engineer hiring process. This shows the dedication and care for current enginners  
+- I read 2 articles by Hamman and Mike Reifman that were catered to the Front-End Engineer hiring process. This shows the dedication and care for current enginners  
 as well as new engineers coming in. It speaks to the type of engineering culture.
 - I like how large the company size is (what I'm currently looking for)
 - The mission of delivering news and helping readers be aware of what's happening immediately around them and around the world is fascinating.
