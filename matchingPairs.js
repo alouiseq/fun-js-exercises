@@ -30,5 +30,46 @@ Store ids/courses as key/value pairs in an object.
   78: [Economics, Physics, Chemistry],
   10: [Chemistry]
 }
-Use a double for loop to traverse the object to find student pairs.
+Use a double for loop to traverse the object to find student pairs (outer and inner loops).
+Traverese the courses for the current student (outer) and find the index in the inner student.
+Time: O(n^2 * x) where x is the number of courses so O(n).
+Space: O(n)
 */
+
+function matchPairs(studentsAndCourses) {
+  const students = {};
+  for(let s of studentsAndCourses){
+    if(students[s[0]]) students[s[0]] = [ ...students[s[0]], s[1] ];
+    else students[s[0]] = [s[1]];
+  }
+  const pairs = {};
+  const studentIds = Object.keys(students);
+  for(let o=0; o<studentIds.length; o++){
+    for(let i=o+1; i<studentIds.length; i++){
+      const left = studentIds[o];
+      const right = studentIds[i];
+      let pairStr = `[${left}, ${right}]`;
+      pairs[pairStr] = [];
+      const cOuter = students[studentIds[o]];
+      const cInner = students[studentIds[i]]
+      for(let c of cOuter){
+        if(cInner.indexOf(c) > -1) pairs[pairStr].push(c);
+      }
+    }
+  }
+  console.log(pairs);
+}
+
+const studentsAndCourses = [
+  [58, 'Algebra'],
+  [58, 'Physics'],
+  [23, 'Communications'],
+  [23, 'Algebra'],
+  [23, 'Physics'],
+  [78, 'Economics'],
+  [78, 'Physics'],
+  [78, 'Chemistry'],
+  [10, 'Chemistry']
+];
+
+console.log(matchPairs(studentsAndCourses));
