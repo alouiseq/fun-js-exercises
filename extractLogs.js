@@ -16,19 +16,8 @@ key5=31
 // sinon-chai moment connect validator restify ejs ws co when
 // helmet wrench brain mustache should backbone forever debug jsdom
 
-var _ = require('underscore');
-
 const list = ['2020-09-29T01:59:14.214Z key5=15,key4=11', 
 '2020-09-29T02:00:31.011Z key3=22,key4=33,key5=16'];
-
-// Your last C/C++ code is saved below:
-// #include <iostream>
-// using namespace std;
-
-// int main() {
-// 	cout<<"Hello";
-// 	return 0;
-// }
 
 function extract(list) {
   const rex = /key\d=(\d*)/g;
