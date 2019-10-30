@@ -11,7 +11,7 @@ class MyPromise {
     cb(this.resolve);
   }
 
-  runSuccessfulSubscriber () {
+  runSuccessfulSubscriber(){
     const next = this.queue.shift();
     if (next && this.status) {
       next(this.status);
@@ -19,7 +19,7 @@ class MyPromise {
     }
   }
 
-  then (cb) {
+  then(cb){
     if (this.status) {
       cb(this.status);
     } else {
