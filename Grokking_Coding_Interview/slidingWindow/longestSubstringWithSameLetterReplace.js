@@ -5,33 +5,41 @@ Space: O(n)
 */
 
 const lengthOfLongestSubstring = function(str, k) {
-    let max = 0;
+    let max = -Infinity; 
+    let temp = -Infinity;
     let left = 0;
     let repeatLeft = k;
     const stack = [];
 
     if(!k) return 0;
-    max = 1;
+    let compareChar = str[0];
 
-    for(let curr=1; curr<str.length; curr++){
-        prev = curr - 1;
-        max = curr - left;
-        if(str[prev] !== str[curr] && repeatLeft){
+    for(let right=0; right<str.length; right++){
+        if(compareChar !== str[right] && repeatLeft){
             repeatLeft--;
-            stack.push(curr);
-        }else if (str[prev] !== str[curr]){
-            // max = curr - left;
+            stack.push(right);
+            console.log('stack', stack);
+        }else if (compareChar !== str[right]){
+            temp = right - left;
+            max = max > temp ? max : temp;
             left = stack.pop();
-            repeatLeft++;
+            compareChar = str[left];
+            if(compareChar === str[right]) repeatLeft++;
+            else stack.push(right);
+            console.log('no repeats left: temp', temp)
+        }else{
+            console.log('char matches with', compareChar);
         }
     }
+    temp = str.length - left;
+    max = max > temp ? max : temp;
 
     return max;
 };
 
 'aabcfaaaaa'
 const input = 'aabccbb', k = 2;     // output: 5
-// const input = 'abbcb', k = 1;    // output: 3
+// const input = 'abbcb', k = 1;    // output: 4
 // const input = 'abccde', k = 1;   // output: 3
 
 console.log('output', lengthOfLongestSubstring(input, k));
