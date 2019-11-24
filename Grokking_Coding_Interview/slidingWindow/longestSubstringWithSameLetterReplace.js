@@ -9,7 +9,7 @@ const lengthOfLongestSubstring = function(str, k) {
     let temp = -Infinity;
     let left = 0;
     let repeatLeft = k;
-    const stack = [];
+    const queue = [];
 
     if(!k) return 0;
     let compareChar = str[0];
@@ -17,15 +17,15 @@ const lengthOfLongestSubstring = function(str, k) {
     for(let right=0; right<str.length; right++){
         if(compareChar !== str[right] && repeatLeft){
             repeatLeft--;
-            stack.push(right);
-            console.log('stack', stack);
+            queue.push(right);
+            console.log('queue', queue);
         }else if (compareChar !== str[right]){
             temp = right - left;
             max = max > temp ? max : temp;
-            left = stack.pop();
+            left = queue.shift();
             compareChar = str[left];
             if(compareChar === str[right]) repeatLeft++;
-            else stack.push(right);
+            else queue.push(right);
             console.log('no repeats left: temp', temp)
         }else{
             console.log('char matches with', compareChar);
@@ -38,8 +38,8 @@ const lengthOfLongestSubstring = function(str, k) {
 };
 
 'aabcfaaaaa'
-const input = 'aabccbb', k = 2;     // output: 5
+// const input = 'aabccbb', k = 2;     // output: 5
 // const input = 'abbcb', k = 1;    // output: 4
-// const input = 'abccde', k = 1;   // output: 3
+const input = 'abccde', k = 1;   // output: 3
 
 console.log('output', lengthOfLongestSubstring(input, k));
