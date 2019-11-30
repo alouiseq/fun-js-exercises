@@ -5,6 +5,7 @@ const find_permutation = function(str, pattern) {
     const hashmap = {};
     let matched = 0;
     let start = 0;
+    let windowSize = 0;
 
     for(let i in pattern){
       let ch = pattern[i];
@@ -14,40 +15,46 @@ const find_permutation = function(str, pattern) {
 
     for(let end=0; end<str.length; end++){
       let ch = str[end];
-      console.log(
-        'hashmap', hashmap,
-        'ch', ch,
-        'matched', matched,
-        'start', start,
-        'end', end
-      );
+      // console.log(
+      //   'hashmap', hashmap,
+      //   'ch', ch,
+      //   'matched', matched,
+      //   'start', start,
+      //   'end', end
+      // );
       if(hashmap[ch] && hashmap[ch] > 0){
         hashmap[ch]--;
         if(!hashmap[ch]){
-          // console.log('matched', ch, hashmap[ch], matched);
           matched++;
         }
-      }else{
-        if(hashmap[ch]){
-          end--;
-        }
-        let prev = str[start++];
-        if(hashmap[prev]){
+      }
+      windowSize = end - start + 1;
+      if(windowSize > pattern.length){
+        let prev = str[start];
+        if(prev in hashmap){
+          if(!hashmap[prev]) matched--;
           hashmap[prev]++;
-          matched--;
         }
+        start++;
       }
       if(matched === Object.keys(hashmap).length){
-        // console.log('true', matched, hashmap);
         return true;
       }
     }
     return false;
   };
 
-// const input = 'oidbcaf', pattern = 'abc';   // true
-const input = 'odicf', pattern = 'dc';    // false
-// const input = 'bcdxabcdy', pattern = 'bcdyabcdx';   // true
-// const input = 'aaacb', pattern = 'abc';   // true
+const inputSet = [];
+let input = '', pattern = '';
+input = 'oidbcaf', pattern = 'abc';   // true
+inputSet.push([input, pattern]);
+input = 'odicf', pattern = 'dc';    // false
+inputSet.push([input, pattern]);
+input = 'bcdxabcdy', pattern = 'bcdyabcdx';   // true
+inputSet.push([input, pattern]);
+input = 'aaacb', pattern = 'abc';   // true
+inputSet.push([input, pattern]);
 
-console.log(find_permutation(input, pattern));
+for(let input of inputSet){
+  console.log('Input', input, 'Output', find_permutation(...input));
+}
