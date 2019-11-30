@@ -1,5 +1,7 @@
 /* SOLUTION
 Use sliding window pattern similar to longestSubstringWithDistinctCharacters. Use a hashmap to store the pattern. Use 2 ptrs to control the window size and ensure it's the size of the pattern. If moving the window forward, restore the left side data of the window that goes out after moving it. If the variable match === size of hashmap, then return TRUE, otherwise return FALSE after the end of the loop.
+Time: O(n) where n is the input string length
+Space: O(m) where m is the pattern length
 */
 const find_permutation = function(str, pattern) {
     const hashmap = {};
@@ -15,14 +17,7 @@ const find_permutation = function(str, pattern) {
 
     for(let end=0; end<str.length; end++){
       let ch = str[end];
-      // console.log(
-      //   'hashmap', hashmap,
-      //   'ch', ch,
-      //   'matched', matched,
-      //   'start', start,
-      //   'end', end
-      // );
-      if(hashmap[ch] && hashmap[ch] > 0){
+      if(ch in hashmap){
         hashmap[ch]--;
         if(!hashmap[ch]){
           matched++;
@@ -32,8 +27,8 @@ const find_permutation = function(str, pattern) {
       if(windowSize > pattern.length){
         let prev = str[start];
         if(prev in hashmap){
-          if(!hashmap[prev]) matched--;
           hashmap[prev]++;
+          if(hashmap[prev] > 0) matched--;
         }
         start++;
       }
