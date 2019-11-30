@@ -5,3 +5,8 @@ const find_permutation = function(str, pattern) {
     // TODO: Write your code here
     return false;
   };
+
+const input = 'oidbcaf', pattern = 'abc';   // true
+const input = 'odicf', pattern = 'dc';    // false
+const input = 'bcdxabcdy', pattern = 'bcdyabcdx';   // true
+const input = 'aaacb', pattern = 'abc';   // true
