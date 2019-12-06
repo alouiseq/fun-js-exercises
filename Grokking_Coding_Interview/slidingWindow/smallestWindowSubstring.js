@@ -10,6 +10,8 @@ Sliding window method where:
 8. If right-left is smaller than smallest, store substring between left and right indices to smallest.
 9. If right pointer is not in charFrequency, increment left index and repeat steps 4-9.
 10. End of loop, return smallest result.
+Time: O(n + m) for str length and pattern length
+Space: O(n) for hashmap
 */
 const find_substring = function(str, pattern) {
     // TODO: Write your code here
