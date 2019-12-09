@@ -61,9 +61,7 @@
 
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop;
-            console.log('SCROLLTOP', scrollTop);
             const pageYOffset = window.pageYOffset;
-            console.log('PAGE Y OFFSET', pageYOffset);
             if(pageYOffset > 0){
                 subHeader.classList.add('after-scroll');
                 content.classList.add('after-content-scroll');
