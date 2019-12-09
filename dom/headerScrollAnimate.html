@@ -12,7 +12,7 @@
             width: 100%;
         }
         .header {
-            /* padding: 20px; */
+            padding: 20px;
             text-align: center;
         }
         .main {
@@ -21,7 +21,6 @@
         }
         .sub {
             height: 150px;
-            padding: 20px;
             background-color: cadetblue;
             transition: all 800ms;
         }
@@ -33,6 +32,10 @@
         .content {
             text-align: center;
             margin-top: 305px;
+            transition: margin-top 800ms;
+        }
+        .after-content-scroll {
+            margin-top: 165px;
         }
     </style>
     <body>
@@ -63,8 +66,10 @@
             console.log('PAGE Y OFFSET', pageYOffset);
             if(pageYOffset > 0){
                 subHeader.classList.add('after-scroll');
+                content.classList.add('after-content-scroll');
             } else {
                 subHeader.classList.remove('after-scroll');
+                content.classList.remove('after-content-scroll');
             }
         }
 
