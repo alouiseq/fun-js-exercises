@@ -1,9 +1,83 @@
 <html>
     <style>
+        /* reset */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            /* position: sticky; */
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        .header {
+            /* padding: 20px; */
+            text-align: center;
+        }
+        .main {
+            height: 70px;
+            background-color: cornflowerblue;
+        }
+        .sub {
+            height: 150px;
+            padding: 20px;
+            background-color: cadetblue;
+            transition: all 800ms;
+        }
+        .after-scroll {
+            height: 0;
+            padding: 0;
+            font-size: 0;
+        }
+        .content {
+            text-align: center;
+            margin-top: 305px;
+        }
     </style>
     <body>
-
+        <header>
+            <div class="main header">
+                <span>THIS IS THE MAIN HEADER</span>
+            </div>
+            <div class="sub header">
+                <span>THIS IS THE SUB HEADER</span>
+            </div>
+        </header>
+        <section class="content">
+        </section>
     </body>
     <script>
+        const mainHeader = document.querySelector('.main.header');
+        const subHeader = document.querySelector('.sub.header');
+        const content = document.querySelector('.content');
+        const count = 30;
+        let elem = null;
+        let textNode = null;
+        let rand = Infinity;
+
+        const handleScroll = () => {
+            const scrollTop = document.documentElement.scrollTop;
+            console.log('SCROLLTOP', scrollTop);
+            const pageYOffset = window.pageYOffset;
+            console.log('PAGE Y OFFSET', pageYOffset);
+            if(pageYOffset > 0){
+                subHeader.classList.add('after-scroll');
+            } else {
+                subHeader.classList.remove('after-scroll');
+            }
+        }
+
+        // Handle scrolling
+        document.addEventListener('scroll', handleScroll);
+
+        // Add content
+        Array.from({length:count}).forEach(() => {
+            rand = Math.floor(Math.random() * 5);
+            elem = document.createElement(`h${rand}`);
+            textNode = document.createTextNode("ISN'T IT COOL HOW MY SIZE KEEPS CHANGING?");
+            elem.appendChild(textNode);
+            content.appendChild(elem);
+        });
     </script>
 </html>
