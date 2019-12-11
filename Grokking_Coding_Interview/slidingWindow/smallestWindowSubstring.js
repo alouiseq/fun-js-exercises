@@ -1,10 +1,10 @@
 /* SOLUTION
 Sliding window method and note that the substring can have extra characters since we're looking for the smallest substring where all the characters in the pattern are present:
-Variables: matched, hashmap, smallest, left, right, temp
+Variables: matched, hashmap, smallest, left, right, temp, first
 1. Put pattern into hashmap.
 2. Outer loop traverses each character in str.
 3. On each iteration, check if char is in the hashmap.
-4. If it is, then decrement 1 from hashmap.
+4. If it is, then decrement 1 from hashmap and store the first one in first.
 5. If not, then continue iteration.
 6. If hashmap[char] >= 0, increment matched, and store in temp.
 7. If matched === pattern.length, compare smallest with temp, and store the smaller of the two.
