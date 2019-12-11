@@ -15,6 +15,18 @@ Space: O(n + m) where n is the chars in the pattern and m is chars in temp.
 */
 const find_substring = function(str, pattern) {
     // TODO: Write your code here
+    let matched = left = 0;
+    let smallest = temp = '';
+    let first = null;
+    const hashmap = {};
+
+    for(ch of pattern){
+        if(ch in hashmap) hashmap[ch]++;
+        else hashmap[ch] = 1;
+    }
+    for(let right=0; right<str.length; right++){
+        
+    }
     return "";
 }
 

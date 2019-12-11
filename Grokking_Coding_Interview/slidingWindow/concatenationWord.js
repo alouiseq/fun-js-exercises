@@ -1,3 +1,9 @@
+/* SOLUTION
+Variables:
+Steps:
+Time:
+Space:
+*/
 const find_word_concatenation = function(str, words) {
     result_indices = [];
     // TODO: Write your code here
