@@ -25,7 +25,12 @@ const find_substring = function(str, pattern) {
         else hashmap[ch] = 1;
     }
     for(let right=0; right<str.length; right++){
-        
+       // pseudocode
+       if(str[right] in hashmap){
+            hashmap[str[right]]--;
+       } else{
+
+       }
     }
     return "";
 }
