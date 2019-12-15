@@ -1,4 +1,5 @@
 /* SOLUTION
+Sliding window pattern.
 Variables:
 Steps:
 Time:

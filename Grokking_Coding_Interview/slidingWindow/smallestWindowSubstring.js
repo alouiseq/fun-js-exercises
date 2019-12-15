@@ -29,8 +29,10 @@ const find_substring = function(str, pattern) {
        if(str[right] in hashmap){
             hashmap[str[right]]--;
        } else{
-
+        // continue iteration
        }
+       // shrink the window as long as match === pattern?
+       // compare with smallest and store the smaller of the two.
     }
     return "";
 }
