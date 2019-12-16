@@ -19,20 +19,24 @@ const find_substring = function(str, pattern) {
     let smallest = temp = '';
     let first = null;
     const hashmap = {};
+    const temp = [];
 
     for(ch of pattern){
         if(ch in hashmap) hashmap[ch]++;
         else hashmap[ch] = 1;
     }
     for(let right=0; right<str.length; right++){
-       // pseudocode
        if(str[right] in hashmap){
             hashmap[str[right]]--;
-       } else{
-        // continue iteration
+            temp.push(str[right]);
        }
-       // shrink the window as long as match === pattern?
-       // compare with smallest and store the smaller of the two.
+       if(hashmap[str[right]] === 0) matched++;
+       while(matched === Object.keys(hashmap).length){
+           smallest =  temp.length < smallest.length ? temp : smallest;
+           hashmap[str[left++]]++;
+           temp.shift();
+           if(hashmap[str[left]] > 0) matched--;
+       }
     }
     return "";
 }
