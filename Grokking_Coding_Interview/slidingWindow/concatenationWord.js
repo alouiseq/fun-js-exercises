@@ -6,9 +6,42 @@ Time:
 Space:
 */
 const find_word_concatenation = function(str, words) {
-    result_indices = [];
-    // TODO: Write your code here
-    return result_indices;
+    const resultIndices = [];
+    const hashmap = {};
+    let patternSet = {};
+    let left, matched = 0;
+    let tempWord = '';
+    const wordLen = words[0].length;
+
+    // put words in a hashmap
+    for(let word of words){
+        if(hashmap[word]){
+            hashmap[word]++;
+        } else {
+            hashmap[word] = 1;
+        }
+    }
+
+    // Update window size and then compare
+    for(let right=0; right<str.length; right++){
+        tempWord.push(str[right]);
+        let currLen = right-left+1;
+        if(currLen === wordLen){
+            if(tempWord in hashmap){
+                hashmap[tempWord]--;
+                if(hashmap[tempWord] === 0){
+                    matched++;
+                }
+            }
+            if(matched === words.length) resultIndices.push(left);
+            left = right+1;
+        } else if(currLen > wordLen){
+            left++;
+        }
+        // How do we handle shifting the window and restoring the hashmap for words that previously matched?
+    }
+
+    return resultIndices;
 };
 
 const inputSet = [
