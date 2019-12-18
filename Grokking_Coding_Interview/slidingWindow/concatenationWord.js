@@ -43,7 +43,7 @@ const find_word_concatenation = function(str, words) {
                 console.log('ALL WORDS MATCHED');
                 resultIndices.push(startLeft);
                 matched = 0;    // reset matched once found
-                startLeft = right+1;
+                startLeft = resultIndices[-1] + wordLen;
             }
             left = right+1;
         } else if(currLen > wordLen){
