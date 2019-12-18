@@ -24,7 +24,7 @@ const find_word_concatenation = function(str, words) {
 
     // Update window size and then compare
     for(let right=0; right<str.length; right++){
-        tempWord.push(str[right]);
+        tempWord += str[right];
         let currLen = right-left+1;
         if(currLen === wordLen){
             if(tempWord in hashmap){
@@ -33,7 +33,10 @@ const find_word_concatenation = function(str, words) {
                     matched++;
                 }
             }
-            if(matched === words.length) resultIndices.push(left);
+            if(matched === words.length){
+                resultIndices.push(left);
+                matched = 0;    // reset matched once found
+            }
             left = right+1;
         } else if(currLen > wordLen){
             left++;
@@ -51,5 +54,5 @@ const inputSet = [
 
 for(let input of inputSet){
     const {str, pattern} = input;
-  console.log('Input', input, 'Output', `'${find_word_concatenation(str, pattern)}'`);
+  console.log('Input', input, 'Output', `[${find_word_concatenation(str, pattern)}]`);
 }
