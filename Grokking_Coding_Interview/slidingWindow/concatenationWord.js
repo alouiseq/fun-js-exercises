@@ -9,7 +9,7 @@ const find_word_concatenation = function(str, words) {
     const resultIndices = [];
     const hashmap = {};
     let patternSet = {};
-    let left, matched = 0;
+    let left = startLeft = matched = 0;
     let tempWord = '';
     const wordLen = words[0].length;
 
@@ -26,16 +26,24 @@ const find_word_concatenation = function(str, words) {
     for(let right=0; right<str.length; right++){
         tempWord += str[right];
         let currLen = right-left+1;
+        console.log('tempWord', tempWord);
+        console.log('currLen', currLen);
         if(currLen === wordLen){
+            console.log('WORD LENGTH MATCHED');
             if(tempWord in hashmap){
                 hashmap[tempWord]--;
+                console.log('UPDATED HASHMAP', hashmap);
                 if(hashmap[tempWord] === 0){
+                    console.log('WORD MATCHED');
                     matched++;
+                    tempWord = '';      // reset tempWord on word match
                 }
             }
             if(matched === words.length){
-                resultIndices.push(left);
+                console.log('ALL WORDS MATCHED');
+                resultIndices.push(startLeft);
                 matched = 0;    // reset matched once found
+                startLeft = right+1;
             }
             left = right+1;
         } else if(currLen > wordLen){
@@ -49,7 +57,7 @@ const find_word_concatenation = function(str, words) {
 
 const inputSet = [
     { str: 'catfoxcat', pattern: ['cat', 'fox'], expected: [0, 3] },
-    { str: 'catcatfoxfox', pattern: ['cat', 'fox'], expected: [3] },
+    // { str: 'catcatfoxfox', pattern: ['cat', 'fox'], expected: [3] },
 ];
 
 for(let input of inputSet){
