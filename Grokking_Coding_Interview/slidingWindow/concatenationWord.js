@@ -49,7 +49,7 @@ const find_word_concatenation = function(str, words) {
         } else if(currLen > wordLen){
             left++;
         }
-        // How do we handle shifting the window and restoring the hashmap for words that previously matched?
+        // How do we handle shifting the window and restoring the hashmap for words that previously matched? need to rethink solution here
     }
 
     return resultIndices;
