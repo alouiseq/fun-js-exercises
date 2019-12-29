@@ -1,6 +1,15 @@
 const pairWithTargetSum = function(arr, targetSum) {
-    // TODO: Write your code here
-    return [-1, -1];
+    let left = 0;
+    let right = arr.length - 1;
+    let result = [];
+
+    while(left !== right && !result.length){
+        if(arr[left] + arr[right] > targetSum) right--;
+        else if(arr[left] + arr[right] < targetSum) left++;
+        else result = [left, right];
+    }
+
+    return result;
 }
 
 const inputSet = [
@@ -10,5 +19,5 @@ const inputSet = [
 
 for(let input of inputSet){
     const {arr, target} = input;
-  console.log('Input', input, 'Output', `'${pairWithTargetSum(arr, target)}'`);
+  console.log('Input', input, 'Output', `[${pairWithTargetSum(arr, target)}]`);
 }
