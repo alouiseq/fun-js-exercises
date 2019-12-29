@@ -1,3 +1,5 @@
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 const pairWithTargetSum = function(arr, targetSum) {
     let left = 0;
     let right = arr.length - 1;
