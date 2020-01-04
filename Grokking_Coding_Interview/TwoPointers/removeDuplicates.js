@@ -1,3 +1,5 @@
+// Time: O(n)
+// Space: O(1)
 const remove_duplicates = function(arr) {
   if(!arr) return -1;
   if(arr.length === 1) return 1;
