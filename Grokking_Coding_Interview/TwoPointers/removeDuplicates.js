@@ -1,6 +1,22 @@
 const remove_duplicates = function(arr) {
-  // TODO: Write your code here
-  return -1;
+  if(!arr) return -1;
+  if(arr.length === 1) return 1;
+
+  let l = 0;
+  let r = 1;
+
+  while(arr[r]){
+    if(arr[l] === arr[r]){
+      r++;
+    }else{
+      arr.splice(l, r-l-1);
+      l++;
+      r = l+1;
+    }
+  }
+
+  if(arr[l] === arr[r-1]) arr.splice(l, r-l-1);
+  return arr.length;
 };
 
 const inputSet = [
@@ -10,5 +26,5 @@ const inputSet = [
 
 for(let input of inputSet){
   const {arr, target} = input;
-console.log('Input', input, 'Output', `[${remove_duplicates(arr)}]`);
+console.log('Input', JSON.parse(JSON.stringify(input)), 'Output', `[${remove_duplicates(arr)}]`);
 }
