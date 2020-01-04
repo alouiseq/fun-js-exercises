@@ -1,5 +1,6 @@
 // Time: O(n)
 // Space: O(1)
+// TODO: Try it with shifting array elements instead of splicing
 const remove_duplicates = function(arr) {
   if(!arr) return -1;
   if(arr.length === 1) return 1;
