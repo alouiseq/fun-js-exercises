@@ -11,6 +11,17 @@
 */
 const make_squares = function(arr) {
   squares = []
+  let left = 0;
+  let right = arr.length - 1;
+
+  while(left !== right){
+    if(Math.abs(arr[left]) > Math.abs(arr[right])){
+      squares.unshift(Math.pow(arr[left++], 2));
+    }else{
+      squares.unshift(Math.pow(arr[right--], 2));
+    }
+  }
+  squares.unshift(Math.pow(arr[left], 2));
   return squares;
 };
 
