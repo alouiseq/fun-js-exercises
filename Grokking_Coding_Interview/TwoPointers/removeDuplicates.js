@@ -22,5 +22,5 @@ const inputSet = [
 
 for(let input of inputSet){
   const {arr, target} = input;
-console.log('Input', JSON.parse(JSON.stringify(input)), 'Output', `[${remove_duplicates(arr)}]`);
+  console.log('Input', JSON.parse(JSON.stringify(input)), 'Output', `[${remove_duplicates(arr)}]`);
 }
