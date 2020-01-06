@@ -5,21 +5,14 @@ const remove_duplicates = function(arr) {
   if(!arr) return -1;
   if(arr.length === 1) return 1;
 
-  let l = 0;
-  let r = 1;
+  let next = 0;
 
-  while(arr[r]){
-    if(arr[l] === arr[r]){
-      r++;
-    }else{
-      arr.splice(l, r-l-1);
-      l++;
-      r = l+1;
+  for(i=1; i<arr.length; i++){
+    if(arr[next] !== arr[i]){
+      arr[++next] = arr[i];
     }
   }
-
-  if(arr[l] === arr[r-1]) arr.splice(l, r-l-1);
-  return arr.length;
+  return next + 1;
 };
 
 const inputSet = [
