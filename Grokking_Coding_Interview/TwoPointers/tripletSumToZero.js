@@ -21,11 +21,11 @@ const search_triplets = function(arr) {
         }
     }
 
-    for(let val of sortedArr){
-        
-        pairSumToZero(sortedArr, -val, triplets);
+    for(let i=0; i<sortedArr.length; i++){
+        if(sortedArr[i] === sortedArr[-1]) continue;
+        pairSumToZero(sortedArr, -sortedArr[i], triplets);
     }
-    return sortedArr;
+    return triplets;
 };
 
 const inputSet = [
