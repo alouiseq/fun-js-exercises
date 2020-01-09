@@ -1,7 +1,31 @@
 const search_triplets = function(arr) {
     triplets = [];
-    // TODO: Write your code here
-    return triplets;
+    
+    // sort
+    const sortedArr = arr.sort((a,b) => {
+        if(a<b) return -1;
+        else if(a>b) return 1;
+        else return 0;
+    });
+
+    const pairSumToZero = (arr, target, triplets) => {
+        let left = 0;
+        let right = arr.length - 1;
+        while(left !== right){
+            const leftVal = arr[left];
+            const rightVal = arr[right];
+            const pairSum = leftVal + rightVal;
+            if(target === pairSum) triplets.push([-target, leftVal, rightVal]);
+            else if(target < pairSum) right--;
+            else if(target > pairSum) left++;
+        }
+    }
+
+    for(let val of sortedArr){
+        
+        pairSumToZero(sortedArr, -val, triplets);
+    }
+    return sortedArr;
 };
 
 const inputSet = [
