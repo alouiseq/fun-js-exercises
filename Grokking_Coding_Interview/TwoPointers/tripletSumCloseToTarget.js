@@ -14,6 +14,7 @@ const triplet_sum_close_to_target = function(arr, target_sum) {
 };
 
 // ========================
+
 // Setup data
 const inputSet = [
   { arr: [-2, 0, 1, 2], targetSum: 2, expected: 1 },
