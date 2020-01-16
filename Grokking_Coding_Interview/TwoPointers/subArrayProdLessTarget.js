@@ -1,11 +1,18 @@
 /* Solution
-This appears to me that the sliding window pattern can be used instead of two pointers. Let's use a variable to hold a temporary subarray and another variable for the output array. We can use two indices (left and right) where the right will iterate through the input, check the product of all the values within the left and right indices and compare with the target. If it's less, then take the current value[right] and add to the output. Then add the value to the subarray, and push the subarray to the output. If product > target, decrease the window from the left index and make sure to take the value outside of the window and remove it from the subarray, and add to the output. Repeat the step until the end of the input. Return the output array.
-Time: O(n) for the sliding window
-Space: O(n) since the worst case is that only one value is < target at any given point, so it'll take n to store the output. In this case the temp subarray would only hold 1 value at a time.
+Use two pointers and sliding window method. Use a left pointer to traverse the input. Use a right pointer and another pointer to control the sliding window. The sliding window will find subarrays that will have a product < target.
+Time: O(n^3) <== n (traversing the input) * n^2 (finding subarrays)
+Space: O(n) since the worst cases are either only elem is < target so result will be [[1], [2], ..., [n]] or that all the elems are < target which will give a result of [1, 2, ..., n, [1,2,...,n]] which is n+1.
 */
 const find_subarrays = function(arr, target) {
-  result = [];
-  // TODO: Write your code here
+  let l = 0;
+  const subarray = [];
+  const result = [];
+  let prod = 1;
+  let valRight = null;
+
+  for(let r=0; r<arr.length; r++){
+    valRight = arr[r];
+  }
   return result;
 };
 
