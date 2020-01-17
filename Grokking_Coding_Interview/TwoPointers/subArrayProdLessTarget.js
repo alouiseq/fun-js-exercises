@@ -4,14 +4,24 @@ Time: O(n^3) <== n (traversing the input) * n^2 (finding subarrays)
 Space: O(n) since the worst cases are either only elem is < target so result will be [[1], [2], ..., [n]] or that all the elems are < target which will give a result of [1, 2, ..., n, [1,2,...,n]] which is n+1.
 */
 const find_subarrays = function(arr, target) {
-  let l = 0;
-  const subarray = [];
+  let r = -1;
+  let subarray = [];
   const result = [];
   let prod = 1;
-  let valRight = null;
 
-  for(let r=0; r<arr.length; r++){
-    valRight = arr[r];
+  for(let l=0; l<arr.length; l++){
+    valLeft = arr[l];
+    while(prod < target && r < arr.length){
+      prod *= arr[++r];
+    }
+
+    subarray = [];
+    for(let i=l; i<r; i++){
+      subarray.push(arr[i]);
+      result.push(`[${subarray}]`);
+    }
+
+    prod /= valLeft;
   }
   return result;
 };
