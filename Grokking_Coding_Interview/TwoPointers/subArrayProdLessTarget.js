@@ -3,6 +3,7 @@ Use two pointers and sliding window method. Use a left pointer to traverse the i
 Time: O(n^3) <== n (traversing the input) * n^2 (finding subarrays)
 Space: O(n) since the worst cases are either only elem is < target so result will be [[1], [2], ..., [n]] or that all the elems are < target which will give a result of [1, 2, ..., n, [1,2,...,n]] which is n+1.
 */
+// Note: This was a bit of a struggle
 const find_subarrays = function(arr, target) {
   let r = -1;
   let subarray = [];
