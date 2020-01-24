@@ -1,3 +1,8 @@
+/* Solution
+Use a fast and a slow pointer to traverse the list. If the faster pointer is 2x that of the slower, then the two will converge at the time the slower completes a cycle. If null is reached before that time, then the list is not a cycle.
+Time: O(n) - linear
+Space: O(1) - constat
+*/
 class Node {
   constructor(value, next=null){
     this.value = value;
