@@ -6,7 +6,6 @@ Space: O(n)
 // TODO
 const triplet_with_smaller_sum = function(arr, target) {
   count = -1;
-  // TODO: Write your code here
   return count;
 };
 

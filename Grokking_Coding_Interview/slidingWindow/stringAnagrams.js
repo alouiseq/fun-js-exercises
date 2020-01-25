@@ -40,12 +40,12 @@ const inputSet = [
     {
         str: 'ppqp',
         pattern: 'qp',
-        expected: [1,2]
+        expected: [1,2],
     },
     {
         str: 'abbcabc',
         pattern: 'abc',
-        expected: [2,3,4]
+        expected: [2,3,4],
     },
 ];
 
