@@ -11,7 +11,6 @@ class Node {
 }
 
 const find_cycle_start = function(head){
-  // TODO: Write your code here
   let pt2 = cycleMeet(head);
   if (!pt2) return null;
   let pt1 = head;
