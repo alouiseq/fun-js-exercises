@@ -9,9 +9,21 @@ Time: length of the cycle with worst at O(n) but we don't know what n is for the
 Space: constant
 */
 const find_happy_number = function(num) {
-  // TODO: Write your code here
-  return false;
+  let slowSumSq = num;
+  let fastSumSq = num;
+  while (true) {
+    slowSumSq = findSumSquare(slowSumSq);
+    fastSumSq = findSumSquare(findSumSquare(fastSumSq));
+    if (slowSumSq === fastSumSq) break;
+  }
+  return slowSumSq === 1;
 };
+
+const findSumSquare = num => {
+  const numStr = num.toString();
+  let sumSquare = numStr.split('').reduce((acc, x) => acc + Math.pow(parseInt(x), 2), 0);
+  return sumSquare;
+}
 
 
 console.log(`${find_happy_number(23)} - expected to be TRUE`)
