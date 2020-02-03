@@ -1,3 +1,9 @@
+/* SOLUTION
+Find the middle of the linked list which is when the fast pointer reaches the end. Reverse the middle to the end of the list. Iterate and compare the value between the first half of the list and the 2nd half of the list. If values don't match then immediately return false, otherwise if the end of the list is reached, then return true for the palindrome match.
+Time complexity - O(n)
+Space complexity - constant
+*/
+// TODO - Implement the solution
 class Node {
   constructor(value, next=null){
     this.value = value;
