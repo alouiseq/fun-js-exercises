@@ -1,3 +1,14 @@
+/* SOLUTION
+First, sort the list of intervals based on the left value. - O(nlogn)
+Iterate over the list (using curr pointer to control the loop) while comparing the previous and current intervals using two pointers. - O(n)
+E.g. if comparing [a, b] and [c, d]:
+- If c < b and d < b, then [a, b] completely overlaps [c, d]
+- If c < b but d > b, then both intervals overlap and d ends after b
+- If c > b then both intervals do not overlap
+If the intervals do not overlap then push to the merged list and increment left prev pointer.
+Time: O(nlogn) + O(n) => O(nlogn)
+Space: O(n)
+*/
 class Interval {
   constructor(start, end) {
     this.start = start;
