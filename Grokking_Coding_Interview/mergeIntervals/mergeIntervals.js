@@ -20,10 +20,28 @@ class Interval {
   }
 }
 
-
 const merge = function(intervals) {
-  merged = []
-  // TODO: Write your code here
+  const merged = []
+
+  // Sort intervals
+  const sorted = intervals.sort((a,b) => {
+    if (a.start < b.start) return -1;
+    if (a.start > b.start) return 1;
+    return 0;
+  });
+  let prev = sorted[0];
+
+  for(let i=1; i<sorted.length; i++) {
+    let curr = sorted[i];
+    if (curr.start > prev.end) {
+      merged.push(prev);
+      prev = curr;
+    } else {  // either prev completely overlaps curr or prev partially overlaps curr
+      prev.end = Math.max(prev.end, curr.end);
+    }
+  }
+  merged.push(prev);
+
   return merged;
 };
 
@@ -32,7 +50,7 @@ result = "";
 for(i=0; i < merged_intervals.length; i++) {
   result += merged_intervals[i].get_interval() + " ";
 }
-console.log(`Merged intervals: ${result}`)
+console.log(`Merged intervals: ${result}`, 'EXPECTED: [[1,5],[7,9]]');
 
 
 merged_intervals = merge([new Interval(6, 7), new Interval(2, 4), new Interval(5, 9)]);
@@ -40,7 +58,7 @@ result = "";
 for(i=0; i < merged_intervals.length; i++) {
   result += merged_intervals[i].get_interval() + " ";
 }
-console.log(`Merged intervals: ${result}`)
+console.log(`Merged intervals: ${result}`, 'EXPECTED: [[2,4],[5,9]]');
 
 
 merged_intervals = merge([new Interval(1, 4), new Interval(2, 6), new Interval(3, 5)]);
@@ -48,4 +66,4 @@ result = "";
 for(i=0; i < merged_intervals.length; i++) {
   result += merged_intervals[i].get_interval() + " ";
 }
-console.log(`Merged intervals: ${result}`)
+console.log(`Merged intervals: ${result}`, 'EXPECTED: [[1,6]]');
