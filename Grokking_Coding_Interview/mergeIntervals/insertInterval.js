@@ -1,14 +1,35 @@
 /* Solution
 Assuming the intervals are sorted (if not then sort), iterate the list and compare the new interval with each one to find the correct place for it:
-A. If the newInterval.start < currentInterval.start then insert the new interval before the current and use mergeIntervals() for the list from current to the end of the list.
-B. If newInterval.start > currentInterval.start but newInterval.end < currentInterval.end, then insert the new interval after the current one and use mergeIntervals() for the list from current to the end of the list.
-C. If newInterval.start > currentInterval.start and newInterval.end > currentInterval.end, then insert the currentInterval to the new mergedIntervals and continue the loop iteration.
-Time: O(n) for finding the insertion point + O(n) for merging intervals => O(n)
-Space: O(n) for new list with added interval (or can do in place) + O(n) for merged result => O(n)
+A. If newInterval.start > currentInterval.end:
+  add currentInterval to merged result and continue iteration
+While loop:
+B. If newInterval.start > currentInterval.start && newInterval.end < currentInterval.end:
+  currentInterval overlaps newInterval
+C. If newInterval.start > currentInterval.start && newInterval.end > currentInterval.end:
+  currentInterval partially overlaps newInterval with newInterval max end
+D. If the newInterval.start < currentInterval.start && newInterval.end < currentInterval.end:
+  newInterval partially overlaps currentInterval with currentInterval max end
+E. If the newInterval.start < currentInterval.start && newInterval.end > currentInterval.end:
+  newInterval overlaps currentInterval
+Time: O(n) for merging intervals
+Space: O(n) for merged result
 */
 const insert = function(intervals, new_interval) {
-  merged = [];
-  // TODO: Write your code here
+  const merged = [];
+  const inserted = [];
+  let ptr = 0;
+
+  for(let i=0; i<intervals; i++) {
+    if (new_interval[0] > intervals[1]) {
+      merged.push(intervals);
+      ptr = i + 1;
+    } else if (new_interval[0] < intervals[1] && new_interval[0] > intervals[0]) {
+
+    } else {  // new_interval[0] < curr[1] && new_interval[0] < curr[0]
+
+    }
+  }
+
   return merged;
 };
 
