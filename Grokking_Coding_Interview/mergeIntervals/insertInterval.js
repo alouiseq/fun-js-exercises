@@ -16,19 +16,22 @@ Space: O(n) for merged result
 */
 const insert = function(intervals, new_interval) {
   const merged = [];
-  const inserted = [];
   let ptr = 0;
+  let curr = new_interval;
 
-  for(let i=0; i<intervals; i++) {
-    if (new_interval[0] > intervals[1]) {
-      merged.push(intervals);
-      ptr = i + 1;
-    } else if (new_interval[0] < intervals[1] && new_interval[0] > intervals[0]) {
+  while (new_interval[0] > intervals[ptr][1]) {
+    merged.push(intervals[ptr++]);
+  }
 
-    } else {  // new_interval[0] < curr[1] && new_interval[0] < curr[0]
-
+  for(let i=ptr; i<intervals.length; i++) {
+    if (intervals[i][0] > curr[1]) {
+      merged.push(curr);
+      curr = intervals[i];
+    } else {
+      curr = [Math.min(intervals[i][0], curr[0]), Math.max(intervals[i][1], curr[1])];
     }
   }
+  merged.push(curr);
 
   return merged;
 };
@@ -37,16 +40,16 @@ intervals = insert([[1, 3], [5, 7], [8, 12]], [4, 6]);
 result = "";
 for(i=0; i < intervals.length; i++)
   result += "[" + intervals[i][0] + ", " + intervals[i][1] + "] ";
-console.log("Intervals after inserting the new interval: " + result);
+console.log("Intervals after inserting the new interval: " + result, 'EXPECTED: [[1,3], [4,7], [8,12]]');
 
 intervals = insert([[1, 3], [5, 7], [8, 12]], [4, 10]);
 result = "";
 for(i=0; i < intervals.length; i++)
   result += "[" + intervals[i][0] + ", " + intervals[i][1] + "] ";
-console.log("Intervals after inserting the new interval: " + result);
+console.log("Intervals after inserting the new interval: " + result, 'EXPECTED: [[1,3], [4,12]]');
 
 intervals = insert([[2, 3], [5, 7]], [1, 4]);
 result = "";
 for(i=0; i < intervals.length; i++)
   result += "[" + intervals[i][0] + ", " + intervals[i][1] + "] ";
-console.log("Intervals after inserting the new interval: " + result);
+console.log("Intervals after inserting the new interval: " + result, 'EXPECTED: [[1,4], [5,7]]');
