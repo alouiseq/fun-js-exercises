@@ -23,15 +23,15 @@ const insert = function(intervals, new_interval) {
     merged.push(intervals[ptr++]);
   }
 
-  for(let i=ptr; i<intervals.length; i++) {
-    if (intervals[i][0] > curr[1]) {
-      merged.push(curr);
-      curr = intervals[i];
-    } else {
-      curr = [Math.min(intervals[i][0], curr[0]), Math.max(intervals[i][1], curr[1])];
-    }
+  while(ptr<intervals.length && intervals[ptr][0] < curr[1]) {
+    curr = [Math.min(intervals[ptr][0], curr[0]), Math.max(intervals[ptr][1], curr[1])];
+    ptr++;
   }
   merged.push(curr);
+
+  while(ptr < intervals.length) {
+    merged.push(intervals[ptr++]);
+  }
 
   return merged;
 };
