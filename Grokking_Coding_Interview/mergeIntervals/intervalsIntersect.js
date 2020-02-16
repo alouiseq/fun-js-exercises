@@ -1,6 +1,10 @@
 /* SOLUTION
-Time:
-Space:
+Use two pointers for each list starting at the beginning and start a loop. Compare and if any overlapping exists, find the max(a.start, b.start) and min(a.end, b.end) for the intersect, and push to the results []. If there is no overlap, move the pointer index accordingly:
+  - if a.end < b.start, increment a pointer
+  - if b.end  < a.start, increment b pointer
+Rinse and repeat until the end of either lists, then return the result.
+Time: O(n) + O(n) => O(n)
+Space: O(n) for result
 */
 const merge = function(intervals_a, intervals_b) {
   result = [];
