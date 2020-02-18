@@ -5,15 +5,13 @@ Space: O(1) if using the same array after sorting.
 */
 const can_attend_all_appointments = function(intervals) {
   // sort
-  intervals = intervals.sort((a,b) => {
-    if (a[0] === b[0]) return 0;
-    return a[0] < b[0] ? -1 : 1;
-  })
+  intervals = intervals.sort((a,b) => a[0] - b[0]);
 
   // find overlap
   let prev = intervals[0];
   for(let i=1; i<intervals.length; i++) {
-    if (intervals[i][0] <= prev[1]) return false;
+    // < instead of <= because intervals[i][0] === prev[1] means the last appt ends when the next appt starts, which in theory, the user can still make the next appt.
+    if (intervals[i][0] < prev[1]) return false;
     prev = intervals[i];
   }
   return true;
