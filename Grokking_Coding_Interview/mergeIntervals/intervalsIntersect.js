@@ -3,12 +3,30 @@ Use two pointers for each list starting at the beginning and start a loop. Compa
   - if a.end < b.start, increment a pointer
   - if b.end  < a.start, increment b pointer
 Rinse and repeat until the end of either lists, then return the result.
-Time: O(n) + O(n) => O(n)
+Time: O(n + m) where n and m are the lengths of each input
 Space: O(n) for result
 */
 const merge = function(intervals_a, intervals_b) {
   result = [];
-  // TODO: Write your code here
+  let ptrA = 0;
+  let ptrB = 0;
+
+  while (ptrA < intervals_a.length && ptrB < intervals_b.length) {
+    if (intervals_b[ptrB][0] > intervals_a[ptrA][1]) ptrA++;
+    else if (intervals_a[ptrA][0] > intervals_b[ptrB][1]) ptrB++;
+    else {  // intersection
+      result.push([Math.max(intervals_a[ptrA][0], intervals_b[ptrB][0]), Math.min(intervals_a[ptrA][1], intervals_b[ptrB][1])]);
+
+      // check which pointer to advance
+      if (intervals_a[ptrA][1] > intervals_b[ptrB][1]) ptrB++;
+      else if (intervals_b[ptrB][1] > intervals_a[ptrA][1]) ptrA++;
+      else {
+        ptrA++;
+        ptrB++;
+      }
+    }
+  }
+
   return result;
 };
 
