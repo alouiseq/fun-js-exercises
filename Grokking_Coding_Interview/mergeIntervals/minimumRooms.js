@@ -1,3 +1,8 @@
+/* SOLUTION
+Use a meetingRooms variable and increment/decrement based on which intervals have been visited. First, sort the array if unsorted. Then use two pointers while iterating over the array. The left pointer is used to track meetings that are in progress. The right pointer expands the window of in progress meetings. The interval[left ptr] is used to compare with the interval[right]. If they overlap, then increment right pointer and increment the meetingRooms. If they don't, increment the left ptr, decrement the meetingRooms, and increment the meetingRooms for the current interval.
+Time: O(n) for traversing the array once with the right pointer
+Space: O(1)
+*/
 class Meeting {
   constructor(start, end) {
     this.start = start;
