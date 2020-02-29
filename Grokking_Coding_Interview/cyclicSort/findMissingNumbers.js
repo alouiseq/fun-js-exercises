@@ -6,15 +6,15 @@ Space: O(1)
 const find_missing_numbers = function(nums) {
   missingNumbers = [];
   let i=0;
-  let count = 0;
 
-  while(i < nums.length && count < 10) {
+  while(i < nums.length) {
     let j = nums[i]-1;
-    console.log('i', i, 'j', j, 'nums[i]', nums[i], 'nums[j]', nums[j]);
+    // console.log('i', i, 'j', j, 'nums[i]', nums[i], 'nums[j]', nums[j], 'nums', nums);
     if ((i+1 === nums[i]) || (nums[i] === nums[j])) i++;
-    // swap
-    [nums[i], nums[j]] = [nums[j], nums[i]];
-    count++;
+    else {
+      // swap
+      [nums[i], nums[j]] = [nums[j], nums[i]];
+    }
   }
   for(let x=0; x<nums.length; x++) {
     if (x+1 !== nums[x]) missingNumbers.push(x+1);
