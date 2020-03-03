@@ -31,7 +31,7 @@
       let progress = 0;
       const incrementInterval = setInterval(() => {
         const innerBar = document.querySelector('.inner-bar');
-        innerBar.style.width = ++progress;
+        innerBar.style.width = `${++progress}px`;
         if (progress >= 100) {
           clearInterval(incrementInterval);
           document.querySelector('.msg').style.display = 'inline-block';
