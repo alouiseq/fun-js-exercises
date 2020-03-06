@@ -146,10 +146,7 @@ A: Generators are functions (syntax: function*) that can be exited and later re-
 
 **Q: How does the event loop work?**
 
-A: The browser has a runtime (like Chrome's v8) that includes a call stack, Web APIs, task queue, and an event loop. All code execution gets pushed onto and popped from 
-the call stack. When a nonblocking (fast) task (e.g. console logging) is executed, it gets pushed onto the stack and popped and executed right away. When a blocking (slow) 
-task (e.g. setTimeout, ajax calls, DOM events) is executed, it gets pushed onto the stack, popped and pushed onto the Web API block to kick off a timer (or waits). When the 
-timer is done (or event is triggered), then that task gets pushed onto the task queue. The event loop then checks if there are any tasks in the stack. If there are tasks, 
+A: The browser has a runtime (like Chrome's v8) that includes a call stack, Web APIs, task queue, and an event loop. All code execution gets pushed onto and popped from the call stack. When a nonblocking (fast) task (e.g. console logging) is executed, it gets pushed onto the stack and popped and executed right away. When a blocking (slow) task (e.g. setTimeout, ajax calls, DOM events) is executed, it gets pushed onto the stack, popped and pushed onto the Web API block to kick off a timer (or waits). When the timer is done (or event is triggered), then that task gets pushed onto the task queue. The event loop then checks if there are any tasks in the stack. If there are tasks, 
 the event loop waits until it's clear before pushing the next queued task onto the stack for execution (https://www.youtube.com/watch?v=8aGhZQkoFbQ).
 
 **Q: What is the difference between event.preventDefault() and event.stopPropagation()?**

@@ -99,10 +99,6 @@ where screen is a media type (other types: all, print, screen, speech)
 A: It's an efficient way to layout, align, and distribute space among items in a container, regardless if their size is dynamic or unknown.
 Resource: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
-**Q: What are web components**
-
-A: They are a suite of varying technologies that allows one to create reusable custom elements.
-
 **Q: What is shadow dom**
 
 A: a set of JS APIs that encapsulates a "shadow" DOM tree (scoped subtree) to an element which is separate from the main document DOM. This allows

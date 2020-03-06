@@ -215,7 +215,11 @@ Added tags that provide semnatic meaning to HTML: header, footer, main, nav, asi
 **Accessibility concerns**
 
 ARIA is a set of attributes that define ways to make web content and applications more accessible to  
-people with disabilities.  
+people with disabilities.
+
+**What are web components?**
+
+A: They are a suite of varying technologies that allows one to create reusable custom elements.
 
 ##CSS
 

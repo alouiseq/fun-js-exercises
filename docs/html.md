@@ -9,11 +9,11 @@ A: The doctype declaration should be the very first thing in an HTML document, b
 
 A: In quirks mode, layout emulates nonstandard behavior in Navigator 4 and Internet Explorer 5 for Windows that is required not to break existing content on the Web. In full standards mode, the behavior is (hopefully) the behavior described by the HTML and CSS specifications. In almost standards mode, there are only a very small number of quirks implemented. http://www.quirksmode.org/css/quirksmode.html 
 
-**Q: What is the difference between windows.onload and onDocumentReady?**
+**Q: What is the difference between windows.onload and DOMContentLoaded?**
 
 A: The onload event does not fire until the last element of the page is loaded including CSS and images etc. There could be a huge delay before onload code on the page is executed.
 
-onDocumentReady will be able to execute code as long as DOM has been built; without waiting for the elements to be loaded, such as images. That means there will be a faster code execution.
+DOMContentLoaded will be able to execute code as long as DOM has been built; without waiting for the elements to be loaded, such as images. That means there will be a faster code execution.
 
 **Q: What are data- attributes used for?**
 
