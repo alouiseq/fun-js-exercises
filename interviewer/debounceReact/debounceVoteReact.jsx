@@ -68,7 +68,7 @@ const LikeDislike = props => {
   let dislikedClasses = `button dislike-button ${vote === 'dislike' ? 'disliked' : ''}`;
       
   return (
-    <div>
+    <div className="container">
       <div className="title">Like/Dislike</div>
       <div>
         <div className={likedClasses} onClick={debounce('like', 1000, true)}>
