@@ -12,13 +12,21 @@ const TodoApp = () => {
   const [items, setItems] = useState(itemList);
 
   const handleChange = (checked, id) => {
-    console.log("id", id, "checked", checked);
     const stuff = [...items];
     const match = items.findIndex(item => item.id === id);
     if (match >= 0) {
       stuff[match].done = checked;
       setItems(stuff);
+      // handleProgress();
     }
+  };
+
+  const handleProgress = () => {
+    const len = items.length;
+    const completed = items.filter(it => it.done).length;
+    const percentDone = Math.round((completed / len) * 100);
+    const progressNode = document.querySelector(".progress-inner");
+    progressNode.style.width = `${percentDone}%`;
   };
 
   const debounce = (e, id) => {
@@ -30,6 +38,8 @@ const TodoApp = () => {
     }, 2000);
     setTimer(t);
   };
+
+  handleProgress();
 
   return (
     <div>
@@ -48,6 +58,9 @@ const TodoApp = () => {
           </li>
         ))}
       </ol>
+      <div className="progress">
+        <div className="progress-inner" />
+      </div>
     </div>
   );
 };
