@@ -69,7 +69,7 @@ const VotingApp = props => {
       
   return (
     <div className="container">
-      <div className="title">Like/Dislike</div>
+      <div className="title">Is Javascript the best language?</div>
       <div>
         <div className={likedClasses} onClick={debounce('like', 1000, true)}>
           <span>Like</span>
