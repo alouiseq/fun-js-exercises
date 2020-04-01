@@ -1,4 +1,4 @@
-const LikeDislike = props => {
+const VotingApp = props => {
   const [likes, setLikes] = React.useState(100);
   const [dislikes, setDislikes] = React.useState(25);
   const [vote, setVote] = React.useState(null);
@@ -86,4 +86,4 @@ const LikeDislike = props => {
   );
 }
 
-ReactDOM.render(<LikeDislike />, document.querySelector("#app"));
+ReactDOM.render(<VotingApp />, document.querySelector("#app"));

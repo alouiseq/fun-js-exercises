@@ -37,8 +37,8 @@ function processAction(i, callback) {
   }, Math.random()*1000);
 }
 
-// console.log('TRIGGER SEQUENTIAL ACTIONS WITHOUT PROMISE...');
-// triggerActions(5);
+console.log('TRIGGER SEQUENTIAL ACTIONS WITHOUT PROMISE...');
+triggerActions(5);
 
 /* Problem 2:
 What if we immediately call processAction while iterating by the count? How do we maintain the 
@@ -88,5 +88,5 @@ function triggerActionsChaining(count) {
   });
 }
 
-console.log('TRIGGER SEQUENTIAL ACTIONS WITH PROMISE CHAINING...');
-triggerActionsChaining(5);
+// console.log('TRIGGER SEQUENTIAL ACTIONS WITH PROMISE CHAINING...');
+// triggerActionsChaining(5);
