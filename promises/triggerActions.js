@@ -21,6 +21,14 @@ function triggerActions(count) {
 
   const cb = (msg) => {
     console.log(msg);
+
+    // NOTE: if using HTML to verify executions
+    /*
+    const node = document.createElement('div');
+    node.innerHTML = `<div>${msg}</div>`;
+    document.getElementById('app').appendChild(node);
+    */
+
     const next = queue.shift();
     if(next) next();
   };
