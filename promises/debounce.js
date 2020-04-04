@@ -4,6 +4,9 @@
     the timer should reset every time the function is called.
 */
 
+let counter = 1;
+const timeInterval = setInterval(() => console.log(`Time: ${counter++}`), 1000);
+
 // es6 style
 function debounce (fn, delay) {
   let timer;
@@ -12,6 +15,7 @@ function debounce (fn, delay) {
       clearTimeout(timer);
       timer = setTimeout(() => {
         fn(...params);
+        clearInterval(timeInterval);
       }, delay);
     }
   );
@@ -38,5 +42,5 @@ function callAutocompleteApi (...params) {
 var slowCall = debounce(callAutocompleteApi, 5000);
 slowCall(10, 20, 30);
 setTimeout(() => slowCall(1, 2, 3), 3000);
-console.log('WHEN DO I GO?')
+// console.log('WHEN DO I GO?')
 // function should now wait 8 secs to fire for the first time
