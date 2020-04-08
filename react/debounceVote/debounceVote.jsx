@@ -2,10 +2,9 @@ const VotingApp = props => {
   const [likes, setLikes] = React.useState(100);
   const [dislikes, setDislikes] = React.useState(25);
   const [vote, setVote] = React.useState(null);
-  const timerRef = React.useRef(null);
+  const timerRef = React.useRef(null);  // can use state instead
   
   const handleLike = () => {
-  	//const { likes, dislikes, vote } = this.state;
     if (vote === 'like') {
     	setLikes(likes - 1);
       setVote(null);
@@ -64,8 +63,8 @@ const VotingApp = props => {
     );
  }
   
-  let likedClasses = `button like-button ${vote === 'like' ? 'liked' : ''}`;
-  let dislikedClasses = `button dislike-button ${vote === 'dislike' ? 'disliked' : ''}`;
+ let likedClasses = `button ${vote === "like" ? "active" : ""}`;
+ let dislikedClasses = `button ${vote === "dislike" ? "active" : ""}`;
       
   return (
     <div className="container">

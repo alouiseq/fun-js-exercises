@@ -3,13 +3,10 @@
   margin-top: 50px;
 }
 
-.like-button, .dislike-button {
+.button {
   font-size: 1rem;
   padding: 5px 10px;
   color: #585858;
-}
-
-.button {
   border: 1px solid gray;
   display: inline-block;
   background-color: light-gray;
@@ -17,11 +14,7 @@
   margin: 0 5px;
 }
 
-.button:active {
-  background-color: gray;
-}
-
-.liked, .disliked {
+.button.active {
   font-weight: bold;
   color: #1565c0;
 }
