@@ -11,6 +11,7 @@ Note: Only one button can be active at any time, but both buttons can be inactiv
 3. Add styling to the buttons
 4. Add 1 or 2 tests
 5. Convert to typescript
+6. Debounce
 */
 const VotingApp = (props) => {
   const [likes, setLikes] = React.useState(100);
